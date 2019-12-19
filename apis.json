@@ -1,0 +1,106 @@
+{
+    "name": "Fulcrum",
+    "description": "<p>Fulcrum is the industry-leading data collection platform that enables users to easily build custom apps for capturing information in the field. We make it simple for field service organizations to get the best data possible from their mobile teams. Replace your paper forms with a customizable digital version on Android and iOS devices.<\/p>",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/28770-developer-fulcrumapp-com.jpg",
+    "tags": [
+        "data",
+        "data collection",
+        "have api",
+        "webhook implementations"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/fulcrum\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Fulcrum",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/28770-developer-fulcrumapp-com.jpg",
+            "humanURL": "https:\/\/www.fulcrumapp.com\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/fulcrum-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Applications",
+            "url": "https:\/\/www.fulcrumapp.com\/apps\/"
+        },
+        {
+            "type": "Blog",
+            "url": "https:\/\/www.fulcrumapp.com\/blog\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "https:\/\/www.fulcrumapp.com\/atom.xml"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/fulcrum"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/developer.fulcrumapp.com\/?_ga=2.261248452.815509467.1531244939-1817161322.1530981122"
+        },
+        {
+            "type": "Documentation",
+            "url": "https:\/\/developer.fulcrumapp.com\/api\/intro\/"
+        },
+        {
+            "type": "Email",
+            "url": "privacy@fulcrumapp.com"
+        },
+        {
+            "type": "Email",
+            "url": "support@fulcrumapp.com"
+        },
+        {
+            "type": "Email",
+            "url": "abuse@fulcrumapp.com"
+        },
+        {
+            "type": "Event Types",
+            "url": "https:\/\/developer.fulcrumapp.com\/data-events\/examples\/"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/fulcrumapp"
+        },
+        {
+            "type": "LinkedIn",
+            "url": "https:\/\/www.linkedin.com\/company\/fulcrum-mobile-data-collection\/"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/www.fulcrumapp.com\/plans\/"
+        },
+        {
+            "type": "Support",
+            "url": "http:\/\/help.fulcrumapp.com\/"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/fulcrumapp"
+        },
+        {
+            "type": "Webhooks",
+            "url": "https:\/\/developer.fulcrumapp.com\/general\/webhooks\/"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/developer.fulcrumapp.com"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.fulcrumapp.com\/"
+        }
+    ]
+}
