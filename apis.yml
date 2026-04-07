@@ -13,9 +13,9 @@ created: '2024-11-13'
 modified: '2026-03-16'
 position: Consumer
 tags:
-  - Geospatial
-  - Field Data
   - Data Collection
+  - Field Data
+  - Geospatial
   - Process Management
 url: >-
   https://raw.githubusercontent.com/api-search/fulcrum/refs/heads/main/apis.yml
@@ -24,9 +24,9 @@ apis:
   - aid: fulcrum:fulcrum
     name: Fulcrum
     tags:
-      - Geospatial
-      - Field Data
       - Data Collection
+      - Field Data
+      - Geospatial
     humanURL: https://docs.fulcrumapp.com/reference/photos-intro
     properties:
       - url: https://docs.fulcrumapp.com/reference/photos-intro
