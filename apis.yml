@@ -72,6 +72,69 @@ common:
     url: https://www.fulcrumapp.com/support/
   - type: Blog
     url: https://www.fulcrumapp.com/blog/
+  - type: Integrations
+    url: https://www.fulcrumapp.com/integrations/
+integrations:
+  - name: Logo preload
+  - name: Logo
+  - name: Fulcrum Insider Newsletter
+  - name: New Fulcrum Esri Partner Member
+  - name: Fulcrum integration - IBM Maximo
+  - name: Fulcrum integration - Azure Cosmos
+  - name: Carto Integration
+  - name: Fulcrum integration - D3
+  - name: Fulcrum integration - Egnyte
+  - name: Fulcrum integration - Gmail
+  - name: Fulcrum integration - Google Data Studio
+  - name: Fulcrum integration - Google Sheets
+  - name: Fulcrum integration - homegrown systems
+  - name: Fulcrum integration - ISN inspection
+  - name: Fulcrum integration - Microsoft SQL Server
+  - name: Fulcrum integration - Microsoft Teams
+  - name: Fulcrum integration - Power BI
+  - name: Procore Integration
+  - name: Regrid Integration
+  - name: Fulcrum integration - QGIS
+  - name: Fulcrum integration - Quickbooks
+  - name: Fulcrum integration - Salesforce
+  - name: Fulcrum integration - sharepoint
+  - name: Fulcrum integration - Slack
+  - name: Fulcrum integration - Snowflake
+  - name: Fulcrum integration - Tableau
+  - name: Fulcrum integration - TREKK360 3D camera
+  - name: Fulcrum integration - gamperl and hatlapa
+  - name: Fulcrum integration - sensors
+  - name: Fulcrum integration - T4 Spatial’s Vault
+  - name: Fulcrum integration - Vivax metrotech
+  - name: Fulcrum integration - Google App Scripts
+  - name: Fulcrum integration - Zapier
+  - name: Fulcrum integration - data events
+  - name: Fulcrum integration - IVR systems
+  - name: Fulcrum integration - optical character recognition
+  - name: Platform Diagram 2x
+  - name: TREKK logo testimonial block
+  - name: TREKK testimonial block image
+  - name: Osmose quote
+  - name: Chuck Musciano, CIO, Osmose
+  - name: Osmose Block Image
+  - name: Trusted by GeoForce Utilities
+  - name: GeoForce customer testimonial Block Image
+  - name: Diehlux testimonial
+  - name: DIEHLUX testimonial Block Image
+  - name: Tilson Tech customer testimonial
+  - name: Tilson Tech Customer testimonial Block image
+  - name: Great Lake Wellhead testimonial
+  - name: Great Lake Wellhead Customer Block
+  - name: Testimonial logo Brown and Caldwell
+  - name: Brown and Caldwell Block Image
+  - name: esri-partner-member
+  - name: Inspectionmanagement Leader Enterprise Leader
+  - name: Gis Highestuseradoption Mid Market Adoption
+  - name: Gis Bestestimatedroi Mid Market Roi
+  - name: Fulcrum on LinkedIn
+  - name: Fulcrum on Facebook
+  - name: Fulcrum on X
+  - name: Fulcrum on YouTube
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
