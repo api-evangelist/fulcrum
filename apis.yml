@@ -47,7 +47,7 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.fulcrumapp.com/reference/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://docs.fulcrumapp.com/docs
       - type: OpenAPI
         url: openapi/fulcrum-api-openapi.yml
