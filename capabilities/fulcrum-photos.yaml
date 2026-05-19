@@ -1,0 +1,194 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fulcrum API — Photos
+  description: 'Fulcrum API — Photos. 4 operations. Lead operation: List photos. Self-contained Naftiko capability covering
+    one Fulcrum business surface.'
+  tags:
+  - Fulcrum
+  - Photos
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FULCRUM_API_KEY: FULCRUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fulcrum-photos
+    baseUri: https://api.fulcrumapp.com/api/v2
+    description: Fulcrum API — Photos business capability. Self-contained, no shared references.
+    resources:
+    - name: photos.json
+      path: /photos.json
+      operations:
+      - name: listphotos
+        method: GET
+        description: List photos
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: form_id
+          in: query
+          type: string
+        - name: record_id
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: integer
+        - name: page
+          in: query
+          type: integer
+      - name: uploadphoto
+        method: POST
+        description: Upload photo
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: photos-id}.jpg
+      path: /photos/{id}.jpg
+      operations:
+      - name: downloadphoto
+        method: GET
+        description: Download photo
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: photos-id}.json
+      path: /photos/{id}.json
+      operations:
+      - name: getphoto
+        method: GET
+        description: Get photo metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-ApiToken
+      value: '{{env.FULCRUM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: fulcrum-photos-rest
+    port: 8080
+    description: REST adapter for Fulcrum API — Photos. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/photos-json
+      name: photos-json
+      description: REST surface for photos.json.
+      operations:
+      - method: GET
+        name: listphotos
+        description: List photos
+        call: fulcrum-photos.listphotos
+        with:
+          form_id: rest.form_id
+          record_id: rest.record_id
+          per_page: rest.per_page
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: uploadphoto
+        description: Upload photo
+        call: fulcrum-photos.uploadphoto
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/photos/id-jpg
+      name: photos-id-jpg
+      description: REST surface for photos-id}.jpg.
+      operations:
+      - method: GET
+        name: downloadphoto
+        description: Download photo
+        call: fulcrum-photos.downloadphoto
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/photos/id-json
+      name: photos-id-json
+      description: REST surface for photos-id}.json.
+      operations:
+      - method: GET
+        name: getphoto
+        description: Get photo metadata
+        call: fulcrum-photos.getphoto
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fulcrum-photos-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fulcrum API — Photos. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-photos
+      description: List photos
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-photos.listphotos
+      with:
+        form_id: tools.form_id
+        record_id: tools.record_id
+        per_page: tools.per_page
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: upload-photo
+      description: Upload photo
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fulcrum-photos.uploadphoto
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: download-photo
+      description: Download photo
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-photos.downloadphoto
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-photo-metadata
+      description: Get photo metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-photos.getphoto
+      outputParameters:
+      - type: object
+        mapping: $.

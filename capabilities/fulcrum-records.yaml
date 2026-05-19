@@ -1,0 +1,242 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fulcrum API — Records
+  description: 'Fulcrum API — Records. 5 operations. Lead operation: List records. Self-contained Naftiko capability covering
+    one Fulcrum business surface.'
+  tags:
+  - Fulcrum
+  - Records
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FULCRUM_API_KEY: FULCRUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fulcrum-records
+    baseUri: https://api.fulcrumapp.com/api/v2
+    description: Fulcrum API — Records business capability. Self-contained, no shared references.
+    resources:
+    - name: records.json
+      path: /records.json
+      operations:
+      - name: listrecords
+        method: GET
+        description: List records
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: form_id
+          in: query
+          type: string
+          description: Filter by form (app) identifier
+        - name: project_id
+          in: query
+          type: string
+          description: Filter by project identifier
+        - name: assigned_to_id
+          in: query
+          type: string
+          description: Filter by assignment
+        - name: status
+          in: query
+          type: string
+          description: Filter by record status
+        - name: bounding_box
+          in: query
+          type: string
+          description: Comma-separated south,west,north,east bounding box
+        - name: per_page
+          in: query
+          type: integer
+        - name: page
+          in: query
+          type: integer
+      - name: createrecord
+        method: POST
+        description: Create record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: records-id}.json
+      path: /records/{id}.json
+      operations:
+      - name: getrecord
+        method: GET
+        description: Get record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updaterecord
+        method: PUT
+        description: Update record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleterecord
+        method: DELETE
+        description: Delete record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-ApiToken
+      value: '{{env.FULCRUM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: fulcrum-records-rest
+    port: 8080
+    description: REST adapter for Fulcrum API — Records. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/records-json
+      name: records-json
+      description: REST surface for records.json.
+      operations:
+      - method: GET
+        name: listrecords
+        description: List records
+        call: fulcrum-records.listrecords
+        with:
+          form_id: rest.form_id
+          project_id: rest.project_id
+          assigned_to_id: rest.assigned_to_id
+          status: rest.status
+          bounding_box: rest.bounding_box
+          per_page: rest.per_page
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createrecord
+        description: Create record
+        call: fulcrum-records.createrecord
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/records/id-json
+      name: records-id-json
+      description: REST surface for records-id}.json.
+      operations:
+      - method: GET
+        name: getrecord
+        description: Get record
+        call: fulcrum-records.getrecord
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updaterecord
+        description: Update record
+        call: fulcrum-records.updaterecord
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleterecord
+        description: Delete record
+        call: fulcrum-records.deleterecord
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fulcrum-records-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fulcrum API — Records. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-records
+      description: List records
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-records.listrecords
+      with:
+        form_id: tools.form_id
+        project_id: tools.project_id
+        assigned_to_id: tools.assigned_to_id
+        status: tools.status
+        bounding_box: tools.bounding_box
+        per_page: tools.per_page
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-record
+      description: Create record
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fulcrum-records.createrecord
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-record
+      description: Get record
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-records.getrecord
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-record
+      description: Update record
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fulcrum-records.updaterecord
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-record
+      description: Delete record
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fulcrum-records.deleterecord
+      outputParameters:
+      - type: object
+        mapping: $.

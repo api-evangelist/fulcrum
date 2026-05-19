@@ -1,0 +1,199 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fulcrum API — Forms
+  description: 'Fulcrum API — Forms. 5 operations. Lead operation: List forms. Self-contained Naftiko capability covering
+    one Fulcrum business surface.'
+  tags:
+  - Fulcrum
+  - Forms
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FULCRUM_API_KEY: FULCRUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fulcrum-forms
+    baseUri: https://api.fulcrumapp.com/api/v2
+    description: Fulcrum API — Forms business capability. Self-contained, no shared references.
+    resources:
+    - name: forms.json
+      path: /forms.json
+      operations:
+      - name: listforms
+        method: GET
+        description: List forms
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createform
+        method: POST
+        description: Create form
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: forms-id}.json
+      path: /forms/{id}.json
+      operations:
+      - name: getform
+        method: GET
+        description: Get form
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateform
+        method: PUT
+        description: Update form
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteform
+        method: DELETE
+        description: Delete form
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-ApiToken
+      value: '{{env.FULCRUM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: fulcrum-forms-rest
+    port: 8080
+    description: REST adapter for Fulcrum API — Forms. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/forms-json
+      name: forms-json
+      description: REST surface for forms.json.
+      operations:
+      - method: GET
+        name: listforms
+        description: List forms
+        call: fulcrum-forms.listforms
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createform
+        description: Create form
+        call: fulcrum-forms.createform
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/forms/id-json
+      name: forms-id-json
+      description: REST surface for forms-id}.json.
+      operations:
+      - method: GET
+        name: getform
+        description: Get form
+        call: fulcrum-forms.getform
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateform
+        description: Update form
+        call: fulcrum-forms.updateform
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteform
+        description: Delete form
+        call: fulcrum-forms.deleteform
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fulcrum-forms-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fulcrum API — Forms. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-forms
+      description: List forms
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-forms.listforms
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-form
+      description: Create form
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fulcrum-forms.createform
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-form
+      description: Get form
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-forms.getform
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-form
+      description: Update form
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fulcrum-forms.updateform
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-form
+      description: Delete form
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fulcrum-forms.deleteform
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,199 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fulcrum API — Classification Sets
+  description: 'Fulcrum API — Classification Sets. 5 operations. Lead operation: List classification sets. Self-contained
+    Naftiko capability covering one Fulcrum business surface.'
+  tags:
+  - Fulcrum
+  - Classification Sets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FULCRUM_API_KEY: FULCRUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fulcrum-classification-sets
+    baseUri: https://api.fulcrumapp.com/api/v2
+    description: Fulcrum API — Classification Sets business capability. Self-contained, no shared references.
+    resources:
+    - name: classification_sets.json
+      path: /classification_sets.json
+      operations:
+      - name: listclassificationsets
+        method: GET
+        description: List classification sets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createclassificationset
+        method: POST
+        description: Create classification set
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: classification_sets-id}.json
+      path: /classification_sets/{id}.json
+      operations:
+      - name: getclassificationset
+        method: GET
+        description: Get classification set
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateclassificationset
+        method: PUT
+        description: Update classification set
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteclassificationset
+        method: DELETE
+        description: Delete classification set
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-ApiToken
+      value: '{{env.FULCRUM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: fulcrum-classification-sets-rest
+    port: 8080
+    description: REST adapter for Fulcrum API — Classification Sets. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/classification-sets-json
+      name: classification-sets-json
+      description: REST surface for classification_sets.json.
+      operations:
+      - method: GET
+        name: listclassificationsets
+        description: List classification sets
+        call: fulcrum-classification-sets.listclassificationsets
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createclassificationset
+        description: Create classification set
+        call: fulcrum-classification-sets.createclassificationset
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/classification-sets/id-json
+      name: classification-sets-id-json
+      description: REST surface for classification_sets-id}.json.
+      operations:
+      - method: GET
+        name: getclassificationset
+        description: Get classification set
+        call: fulcrum-classification-sets.getclassificationset
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateclassificationset
+        description: Update classification set
+        call: fulcrum-classification-sets.updateclassificationset
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteclassificationset
+        description: Delete classification set
+        call: fulcrum-classification-sets.deleteclassificationset
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fulcrum-classification-sets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fulcrum API — Classification Sets. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-classification-sets
+      description: List classification sets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-classification-sets.listclassificationsets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-classification-set
+      description: Create classification set
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fulcrum-classification-sets.createclassificationset
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-classification-set
+      description: Get classification set
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-classification-sets.getclassificationset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-classification-set
+      description: Update classification set
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fulcrum-classification-sets.updateclassificationset
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-classification-set
+      description: Delete classification set
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fulcrum-classification-sets.deleteclassificationset
+      outputParameters:
+      - type: object
+        mapping: $.

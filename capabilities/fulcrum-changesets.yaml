@@ -1,0 +1,104 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fulcrum API — Changesets
+  description: 'Fulcrum API — Changesets. 2 operations. Lead operation: List changesets. Self-contained Naftiko capability
+    covering one Fulcrum business surface.'
+  tags:
+  - Fulcrum
+  - Changesets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FULCRUM_API_KEY: FULCRUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fulcrum-changesets
+    baseUri: https://api.fulcrumapp.com/api/v2
+    description: Fulcrum API — Changesets business capability. Self-contained, no shared references.
+    resources:
+    - name: changesets.json
+      path: /changesets.json
+      operations:
+      - name: listchangesets
+        method: GET
+        description: List changesets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: changesets-id}.json
+      path: /changesets/{id}.json
+      operations:
+      - name: getchangeset
+        method: GET
+        description: Get changeset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-ApiToken
+      value: '{{env.FULCRUM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: fulcrum-changesets-rest
+    port: 8080
+    description: REST adapter for Fulcrum API — Changesets. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/changesets-json
+      name: changesets-json
+      description: REST surface for changesets.json.
+      operations:
+      - method: GET
+        name: listchangesets
+        description: List changesets
+        call: fulcrum-changesets.listchangesets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/changesets/id-json
+      name: changesets-id-json
+      description: REST surface for changesets-id}.json.
+      operations:
+      - method: GET
+        name: getchangeset
+        description: Get changeset
+        call: fulcrum-changesets.getchangeset
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fulcrum-changesets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fulcrum API — Changesets. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-changesets
+      description: List changesets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-changesets.listchangesets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-changeset
+      description: Get changeset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-changesets.getchangeset
+      outputParameters:
+      - type: object
+        mapping: $.

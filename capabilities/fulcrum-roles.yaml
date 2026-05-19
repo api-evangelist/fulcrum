@@ -1,0 +1,199 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fulcrum API — Roles
+  description: 'Fulcrum API — Roles. 5 operations. Lead operation: List roles. Self-contained Naftiko capability covering
+    one Fulcrum business surface.'
+  tags:
+  - Fulcrum
+  - Roles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FULCRUM_API_KEY: FULCRUM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fulcrum-roles
+    baseUri: https://api.fulcrumapp.com/api/v2
+    description: Fulcrum API — Roles business capability. Self-contained, no shared references.
+    resources:
+    - name: roles.json
+      path: /roles.json
+      operations:
+      - name: listroles
+        method: GET
+        description: List roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createrole
+        method: POST
+        description: Create role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: roles-id}.json
+      path: /roles/{id}.json
+      operations:
+      - name: getrole
+        method: GET
+        description: Get role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updaterole
+        method: PUT
+        description: Update role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleterole
+        method: DELETE
+        description: Delete role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-ApiToken
+      value: '{{env.FULCRUM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: fulcrum-roles-rest
+    port: 8080
+    description: REST adapter for Fulcrum API — Roles. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/roles-json
+      name: roles-json
+      description: REST surface for roles.json.
+      operations:
+      - method: GET
+        name: listroles
+        description: List roles
+        call: fulcrum-roles.listroles
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createrole
+        description: Create role
+        call: fulcrum-roles.createrole
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/roles/id-json
+      name: roles-id-json
+      description: REST surface for roles-id}.json.
+      operations:
+      - method: GET
+        name: getrole
+        description: Get role
+        call: fulcrum-roles.getrole
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updaterole
+        description: Update role
+        call: fulcrum-roles.updaterole
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleterole
+        description: Delete role
+        call: fulcrum-roles.deleterole
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fulcrum-roles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fulcrum API — Roles. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-roles
+      description: List roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-roles.listroles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-role
+      description: Create role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fulcrum-roles.createrole
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-role
+      description: Get role
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fulcrum-roles.getrole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-role
+      description: Update role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fulcrum-roles.updaterole
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-role
+      description: Delete role
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fulcrum-roles.deleterole
+      outputParameters:
+      - type: object
+        mapping: $.
