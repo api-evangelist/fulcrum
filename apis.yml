@@ -98,6 +98,8 @@ common:
     url: https://www.fulcrumapp.com/blog/
   - type: Integrations
     url: https://www.fulcrumapp.com/integrations/
+  - type: LLMsTxt
+    url: https://docs.fulcrumapp.com/llms.txt
 integrations:
   - name: Logo preload
   - name: Logo
