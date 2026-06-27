@@ -58,7 +58,7 @@ common:
     url: https://www.fulcrumapp.com/pricing/
   - type: Login
     url: https://web.fulcrumapp.com/users/sign_in
-  - type: SignUp
+  - type: Signup
     url: https://web.fulcrumapp.com/users/sign_up
   - type: PrivacyPolicy
     url: https://www.fulcrumapp.com/privacy/
@@ -70,7 +70,7 @@ common:
     url: https://www.fulcrumapp.com/blog/
   - type: Integrations
     url: https://www.fulcrumapp.com/integrations/
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.fulcrumapp.com/llms.txt
 integrations:
   - name: Logo preload
