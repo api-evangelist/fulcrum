@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/fulcrum-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiToken
+  type: apiKey
+  in: header
+  parameter: X-ApiToken
+  description: Fulcrum API token issued from a Fulcrum account
+  sources:
+  - openapi/fulcrum-api-openapi.yml

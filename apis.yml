@@ -46,6 +46,12 @@ apis:
       - type: OpenAPI
         url: openapi/fulcrum-api-openapi.yml
 common:
+  - type: TrustCenter
+    url: security/fulcrum-trust-center.yml
+  - type: DomainSecurity
+    url: security/fulcrum-domain-security.yml
+  - type: Authentication
+    url: authentication/fulcrum-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/fulcrumapp
   - type: Website
