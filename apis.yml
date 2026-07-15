@@ -46,6 +46,8 @@ apis:
       - type: OpenAPI
         url: openapi/fulcrum-api-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/fulcrum-agentic-access.yml
   - type: TrustCenter
     url: security/fulcrum-trust-center.yml
   - type: DomainSecurity
