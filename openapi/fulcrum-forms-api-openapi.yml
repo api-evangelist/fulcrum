@@ -1,0 +1,153 @@
+openapi: 3.1.0
+info:
+  title: Fulcrum Audio Forms API
+  description: The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.
+  version: 0.0.1
+  contact:
+    name: Fulcrum
+    url: https://www.fulcrumapp.com/
+servers:
+- url: https://api.fulcrumapp.com/api/v2
+  description: Fulcrum production API (v2)
+security:
+- ApiToken: []
+tags:
+- name: Forms
+  description: App and form definitions
+paths:
+  /forms.json:
+    get:
+      tags:
+      - Forms
+      summary: List forms
+      description: Returns a list of all forms (apps) the authenticated account has access to.
+      operationId: listForms
+      responses:
+        '200':
+          description: Forms list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  forms:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Form'
+    post:
+      tags:
+      - Forms
+      summary: Create form
+      operationId: createForm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                form:
+                  $ref: '#/components/schemas/Form'
+      responses:
+        '200':
+          description: Form created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  form:
+                    $ref: '#/components/schemas/Form'
+  /forms/{id}.json:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      tags:
+      - Forms
+      summary: Get form
+      operationId: getForm
+      responses:
+        '200':
+          description: Form
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  form:
+                    $ref: '#/components/schemas/Form'
+    put:
+      tags:
+      - Forms
+      summary: Update form
+      operationId: updateForm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                form:
+                  $ref: '#/components/schemas/Form'
+      responses:
+        '200':
+          description: Form updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  form:
+                    $ref: '#/components/schemas/Form'
+    delete:
+      tags:
+      - Forms
+      summary: Delete form
+      operationId: deleteForm
+      responses:
+        '204':
+          description: Form deleted
+components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier (UUID)
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    Form:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        elements:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        status_field:
+          type: object
+          additionalProperties: true
+        record_count:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    ApiToken:
+      type: apiKey
+      in: header
+      name: X-ApiToken
+      description: Fulcrum API token issued from a Fulcrum account

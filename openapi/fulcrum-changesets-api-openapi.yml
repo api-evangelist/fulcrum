@@ -1,0 +1,89 @@
+openapi: 3.1.0
+info:
+  title: Fulcrum Audio Changesets API
+  description: The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.
+  version: 0.0.1
+  contact:
+    name: Fulcrum
+    url: https://www.fulcrumapp.com/
+servers:
+- url: https://api.fulcrumapp.com/api/v2
+  description: Fulcrum production API (v2)
+security:
+- ApiToken: []
+tags:
+- name: Changesets
+  description: Grouped record changes for sync and audit
+paths:
+  /changesets.json:
+    get:
+      tags:
+      - Changesets
+      summary: List changesets
+      operationId: listChangesets
+      responses:
+        '200':
+          description: Changesets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  changesets:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Changeset'
+  /changesets/{id}.json:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      tags:
+      - Changesets
+      summary: Get changeset
+      operationId: getChangeset
+      responses:
+        '200':
+          description: Changeset
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  changeset:
+                    $ref: '#/components/schemas/Changeset'
+components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier (UUID)
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    Changeset:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        form_id:
+          type: string
+          format: uuid
+        metadata:
+          type: object
+          additionalProperties: true
+        created_at:
+          type: string
+          format: date-time
+        closed_at:
+          type: string
+          format: date-time
+          nullable: true
+  securitySchemes:
+    ApiToken:
+      type: apiKey
+      in: header
+      name: X-ApiToken
+      description: Fulcrum API token issued from a Fulcrum account

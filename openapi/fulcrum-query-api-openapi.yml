@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: Fulcrum Audio Query API
+  description: The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.
+  version: 0.0.1
+  contact:
+    name: Fulcrum
+    url: https://www.fulcrumapp.com/
+servers:
+- url: https://api.fulcrumapp.com/api/v2
+  description: Fulcrum production API (v2)
+security:
+- ApiToken: []
+tags:
+- name: Query
+  description: Ad hoc query and SQL execution against Fulcrum data
+paths:
+  /query:
+    get:
+      tags:
+      - Query
+      summary: Execute SQL query
+      description: Runs an ad hoc SQL query against the read-only Fulcrum query database and returns results as JSON, CSV, GeoJSON, KML, or another supported format depending on the format parameter.
+      operationId: executeQuery
+      parameters:
+      - name: q
+        in: query
+        required: true
+        description: SQL query string
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: Result format
+        schema:
+          type: string
+          enum:
+          - json
+          - csv
+          - geojson
+          - kml
+      responses:
+        '200':
+          description: Query results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      type: object
+                  rows:
+                    type: array
+                    items:
+                      type: object
+            text/csv:
+              schema:
+                type: string
+            application/vnd.geo+json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    ApiToken:
+      type: apiKey
+      in: header
+      name: X-ApiToken
+      description: Fulcrum API token issued from a Fulcrum account

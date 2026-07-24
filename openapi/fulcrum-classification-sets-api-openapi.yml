@@ -1,0 +1,141 @@
+openapi: 3.1.0
+info:
+  title: Fulcrum Audio Classification Sets API
+  description: The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.
+  version: 0.0.1
+  contact:
+    name: Fulcrum
+    url: https://www.fulcrumapp.com/
+servers:
+- url: https://api.fulcrumapp.com/api/v2
+  description: Fulcrum production API (v2)
+security:
+- ApiToken: []
+tags:
+- name: Classification Sets
+  description: Hierarchical classifications referenced by form fields
+paths:
+  /classification_sets.json:
+    get:
+      tags:
+      - Classification Sets
+      summary: List classification sets
+      operationId: listClassificationSets
+      responses:
+        '200':
+          description: Classification sets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  classification_sets:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ClassificationSet'
+    post:
+      tags:
+      - Classification Sets
+      summary: Create classification set
+      operationId: createClassificationSet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                classification_set:
+                  $ref: '#/components/schemas/ClassificationSet'
+      responses:
+        '200':
+          description: Classification set created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  classification_set:
+                    $ref: '#/components/schemas/ClassificationSet'
+  /classification_sets/{id}.json:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      tags:
+      - Classification Sets
+      summary: Get classification set
+      operationId: getClassificationSet
+      responses:
+        '200':
+          description: Classification set
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  classification_set:
+                    $ref: '#/components/schemas/ClassificationSet'
+    put:
+      tags:
+      - Classification Sets
+      summary: Update classification set
+      operationId: updateClassificationSet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                classification_set:
+                  $ref: '#/components/schemas/ClassificationSet'
+      responses:
+        '200':
+          description: Classification set updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  classification_set:
+                    $ref: '#/components/schemas/ClassificationSet'
+    delete:
+      tags:
+      - Classification Sets
+      summary: Delete classification set
+      operationId: deleteClassificationSet
+      responses:
+        '204':
+          description: Classification set deleted
+components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier (UUID)
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    ClassificationSet:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+  securitySchemes:
+    ApiToken:
+      type: apiKey
+      in: header
+      name: X-ApiToken
+      description: Fulcrum API token issued from a Fulcrum account

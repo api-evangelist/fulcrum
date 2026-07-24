@@ -1,0 +1,207 @@
+openapi: 3.1.0
+info:
+  title: Fulcrum Audio Records API
+  description: The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.
+  version: 0.0.1
+  contact:
+    name: Fulcrum
+    url: https://www.fulcrumapp.com/
+servers:
+- url: https://api.fulcrumapp.com/api/v2
+  description: Fulcrum production API (v2)
+security:
+- ApiToken: []
+tags:
+- name: Records
+  description: Records collected against a form
+paths:
+  /records.json:
+    get:
+      tags:
+      - Records
+      summary: List records
+      description: Returns records that match the supplied filters.
+      operationId: listRecords
+      parameters:
+      - name: form_id
+        in: query
+        description: Filter by form (app) identifier
+        schema:
+          type: string
+      - name: project_id
+        in: query
+        description: Filter by project identifier
+        schema:
+          type: string
+      - name: assigned_to_id
+        in: query
+        description: Filter by assignment
+        schema:
+          type: string
+      - name: status
+        in: query
+        description: Filter by record status
+        schema:
+          type: string
+      - name: bounding_box
+        in: query
+        description: Comma-separated south,west,north,east bounding box
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+      - name: page
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Records
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  records:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Record'
+                  current_page:
+                    type: integer
+                  total_pages:
+                    type: integer
+                  total_count:
+                    type: integer
+                  per_page:
+                    type: integer
+    post:
+      tags:
+      - Records
+      summary: Create record
+      operationId: createRecord
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                record:
+                  $ref: '#/components/schemas/Record'
+      responses:
+        '200':
+          description: Record created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  record:
+                    $ref: '#/components/schemas/Record'
+  /records/{id}.json:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      tags:
+      - Records
+      summary: Get record
+      operationId: getRecord
+      responses:
+        '200':
+          description: Record
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  record:
+                    $ref: '#/components/schemas/Record'
+    put:
+      tags:
+      - Records
+      summary: Update record
+      operationId: updateRecord
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                record:
+                  $ref: '#/components/schemas/Record'
+      responses:
+        '200':
+          description: Record updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  record:
+                    $ref: '#/components/schemas/Record'
+    delete:
+      tags:
+      - Records
+      summary: Delete record
+      operationId: deleteRecord
+      responses:
+        '204':
+          description: Record deleted
+components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier (UUID)
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    Record:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        form_id:
+          type: string
+          format: uuid
+        project_id:
+          type: string
+          format: uuid
+          nullable: true
+        assigned_to_id:
+          type: string
+          format: uuid
+          nullable: true
+        status:
+          type: string
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        altitude:
+          type: number
+          format: double
+          nullable: true
+        form_values:
+          type: object
+          additionalProperties: true
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    ApiToken:
+      type: apiKey
+      in: header
+      name: X-ApiToken
+      description: Fulcrum API token issued from a Fulcrum account

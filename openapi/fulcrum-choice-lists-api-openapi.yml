@@ -1,0 +1,145 @@
+openapi: 3.1.0
+info:
+  title: Fulcrum Audio Choice Lists API
+  description: The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.
+  version: 0.0.1
+  contact:
+    name: Fulcrum
+    url: https://www.fulcrumapp.com/
+servers:
+- url: https://api.fulcrumapp.com/api/v2
+  description: Fulcrum production API (v2)
+security:
+- ApiToken: []
+tags:
+- name: Choice Lists
+  description: Reusable choice lists referenced by form fields
+paths:
+  /choice_lists.json:
+    get:
+      tags:
+      - Choice Lists
+      summary: List choice lists
+      operationId: listChoiceLists
+      responses:
+        '200':
+          description: Choice lists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  choice_lists:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ChoiceList'
+    post:
+      tags:
+      - Choice Lists
+      summary: Create choice list
+      operationId: createChoiceList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                choice_list:
+                  $ref: '#/components/schemas/ChoiceList'
+      responses:
+        '200':
+          description: Choice list created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  choice_list:
+                    $ref: '#/components/schemas/ChoiceList'
+  /choice_lists/{id}.json:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      tags:
+      - Choice Lists
+      summary: Get choice list
+      operationId: getChoiceList
+      responses:
+        '200':
+          description: Choice list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  choice_list:
+                    $ref: '#/components/schemas/ChoiceList'
+    put:
+      tags:
+      - Choice Lists
+      summary: Update choice list
+      operationId: updateChoiceList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                choice_list:
+                  $ref: '#/components/schemas/ChoiceList'
+      responses:
+        '200':
+          description: Choice list updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  choice_list:
+                    $ref: '#/components/schemas/ChoiceList'
+    delete:
+      tags:
+      - Choice Lists
+      summary: Delete choice list
+      operationId: deleteChoiceList
+      responses:
+        '204':
+          description: Choice list deleted
+components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier (UUID)
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    ChoiceList:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+              value:
+                type: string
+  securitySchemes:
+    ApiToken:
+      type: apiKey
+      in: header
+      name: X-ApiToken
+      description: Fulcrum API token issued from a Fulcrum account
