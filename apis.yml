@@ -6,7 +6,20 @@ description: >-
   The Fulcrum REST API exposes programmatic access to forms, records, media, choice lists, classification sets,
   projects, layers, memberships, roles, webhooks, ad hoc SQL queries, and changesets.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fulcrum.png
 access: 3rd-Party
 created: '2024-11-13'
 modified: '2026-05-19'
@@ -20,31 +33,216 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/fulcrum/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: fulcrum:fulcrum-api
-    name: Fulcrum API
-    description: >-
-      The Fulcrum API is a RESTful HTTP API that provides programmatic access to all Fulcrum resources. It supports CRUD
-      operations on forms (apps) and records, uploads of photo, video, audio, and signature media tied to records,
-      management of choice lists and classification sets, project and layer configuration, account memberships and
-      roles, outbound webhooks, and ad hoc SQL queries against a read-only mirror of the customer data. All requests
-      authenticate using an X-ApiToken header and exchange JSON bodies.
-    humanURL: https://docs.fulcrumapp.com/reference/
-    baseURL: https://api.fulcrumapp.com/api/v2
-    tags:
-      - Data Collection
-      - Field Data
-      - Geospatial
-      - Forms
-      - Records
-      - Media
-      - Webhooks
-    properties:
-      - type: Documentation
-        url: https://docs.fulcrumapp.com/reference/
-      - type: GettingStarted
-        url: https://docs.fulcrumapp.com/docs
-      - type: OpenAPI
-        url: openapi/fulcrum-api-openapi.yml
+- aid: fulcrum:fulcrum-audio-api
+  name: Fulcrum Audio API
+  description: Audio media attached to records
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Audio
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-audio-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-changesets-api
+  name: Fulcrum Changesets API
+  description: Grouped record changes for sync and audit
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Changesets
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-changesets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-choice-lists-api
+  name: Fulcrum Choice Lists API
+  description: Reusable choice lists referenced by form fields
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Choice Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-choice-lists-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-classification-sets-api
+  name: Fulcrum Classification Sets API
+  description: Hierarchical classifications referenced by form fields
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Classification Sets
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-classification-sets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-forms-api
+  name: Fulcrum Forms API
+  description: App and form definitions
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Forms
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-forms-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-layers-api
+  name: Fulcrum Layers API
+  description: Layers and tile sources used by forms
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Layers
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-layers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-memberships-api
+  name: Fulcrum Memberships API
+  description: Account memberships and assignments
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Memberships
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-memberships-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-photos-api
+  name: Fulcrum Photos API
+  description: Photo media attached to records
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Photos
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-photos-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-projects-api
+  name: Fulcrum Projects API
+  description: Project containers used to scope records
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-projects-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-query-api
+  name: Fulcrum Query API
+  description: Ad hoc query and SQL execution against Fulcrum data
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Query
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-query-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-records-api
+  name: Fulcrum Records API
+  description: Records collected against a form
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Records
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-records-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-roles-api
+  name: Fulcrum Roles API
+  description: Permission roles for memberships
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-roles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-signatures-api
+  name: Fulcrum Signatures API
+  description: Signature media attached to records
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Signatures
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-signatures-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-videos-api
+  name: Fulcrum Videos API
+  description: Video media attached to records
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Videos
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-videos-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
+- aid: fulcrum:fulcrum-webhooks-api
+  name: Fulcrum Webhooks API
+  description: Outbound webhooks for record and form events
+  humanURL: https://docs.fulcrumapp.com/reference/
+  baseURL: https://api.fulcrumapp.com/api/v2
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/fulcrum-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.fulcrumapp.com/reference/
+  - type: GettingStarted
+    url: https://docs.fulcrumapp.com/docs
 common:
   - type: AgenticAccess
     url: agentic-access/fulcrum-agentic-access.yml
