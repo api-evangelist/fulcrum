@@ -1,0 +1,1463 @@
+openapi: 3.1.0
+info:
+  title: Fulcrum API
+  description: >-
+    The Fulcrum API is a RESTful HTTP API for the Fulcrum field data
+    collection platform. It provides programmatic access to forms, records,
+    media (photos, videos, audio, signatures), choice lists, classification
+    sets, projects, layers, memberships, roles, webhooks, ad hoc query and
+    SQL execution, and changesets. Requests and responses use JSON and
+    authenticate with an X-ApiToken header issued from a Fulcrum account.
+  version: "0.0.1"
+  contact:
+    name: Fulcrum
+    url: https://www.fulcrumapp.com/
+servers:
+  - url: https://api.fulcrumapp.com/api/v2
+    description: Fulcrum production API (v2)
+tags:
+  - name: Forms
+    description: App and form definitions
+  - name: Records
+    description: Records collected against a form
+  - name: Photos
+    description: Photo media attached to records
+  - name: Videos
+    description: Video media attached to records
+  - name: Audio
+    description: Audio media attached to records
+  - name: Signatures
+    description: Signature media attached to records
+  - name: Choice Lists
+    description: Reusable choice lists referenced by form fields
+  - name: Classification Sets
+    description: Hierarchical classifications referenced by form fields
+  - name: Projects
+    description: Project containers used to scope records
+  - name: Layers
+    description: Layers and tile sources used by forms
+  - name: Memberships
+    description: Account memberships and assignments
+  - name: Roles
+    description: Permission roles for memberships
+  - name: Webhooks
+    description: Outbound webhooks for record and form events
+  - name: Changesets
+    description: Grouped record changes for sync and audit
+  - name: Query
+    description: Ad hoc query and SQL execution against Fulcrum data
+paths:
+  /forms.json:
+    get:
+      tags:
+        - Forms
+      summary: List forms
+      description: Returns a list of all forms (apps) the authenticated account has access to.
+      operationId: listForms
+      responses:
+        "200":
+          description: Forms list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  forms:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Form"
+    post:
+      tags:
+        - Forms
+      summary: Create form
+      operationId: createForm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                form:
+                  $ref: "#/components/schemas/Form"
+      responses:
+        "200":
+          description: Form created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  form:
+                    $ref: "#/components/schemas/Form"
+  /forms/{id}.json:
+    parameters:
+      - $ref: "#/components/parameters/IdPath"
+    get:
+      tags:
+        - Forms
+      summary: Get form
+      operationId: getForm
+      responses:
+        "200":
+          description: Form
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  form:
+                    $ref: "#/components/schemas/Form"
+    put:
+      tags:
+        - Forms
+      summary: Update form
+      operationId: updateForm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                form:
+                  $ref: "#/components/schemas/Form"
+      responses:
+        "200":
+          description: Form updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  form:
+                    $ref: "#/components/schemas/Form"
+    delete:
+      tags:
+        - Forms
+      summary: Delete form
+      operationId: deleteForm
+      responses:
+        "204":
+          description: Form deleted
+  /records.json:
+    get:
+      tags:
+        - Records
+      summary: List records
+      description: Returns records that match the supplied filters.
+      operationId: listRecords
+      parameters:
+        - name: form_id
+          in: query
+          description: Filter by form (app) identifier
+          schema:
+            type: string
+        - name: project_id
+          in: query
+          description: Filter by project identifier
+          schema:
+            type: string
+        - name: assigned_to_id
+          in: query
+          description: Filter by assignment
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter by record status
+          schema:
+            type: string
+        - name: bounding_box
+          in: query
+          description: Comma-separated south,west,north,east bounding box
+          schema:
+            type: string
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+        - name: page
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Records
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  records:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Record"
+                  current_page:
+                    type: integer
+                  total_pages:
+                    type: integer
+                  total_count:
+                    type: integer
+                  per_page:
+                    type: integer
+    post:
+      tags:
+        - Records
+      summary: Create record
+      operationId: createRecord
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                record:
+                  $ref: "#/components/schemas/Record"
+      responses:
+        "200":
+          description: Record created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  record:
+                    $ref: "#/components/schemas/Record"
+  /records/{id}.json:
+    parameters:
+      - $ref: "#/components/parameters/IdPath"
+    get:
+      tags:
+        - Records
+      summary: Get record
+      operationId: getRecord
+      responses:
+        "200":
+          description: Record
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  record:
+                    $ref: "#/components/schemas/Record"
+    put:
+      tags:
+        - Records
+      summary: Update record
+      operationId: updateRecord
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                record:
+                  $ref: "#/components/schemas/Record"
+      responses:
+        "200":
+          description: Record updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  record:
+                    $ref: "#/components/schemas/Record"
+    delete:
+      tags:
+        - Records
+      summary: Delete record
+      operationId: deleteRecord
+      responses:
+        "204":
+          description: Record deleted
+  /photos.json:
+    get:
+      tags:
+        - Photos
+      summary: List photos
+      operationId: listPhotos
+      parameters:
+        - name: form_id
+          in: query
+          schema:
+            type: string
+        - name: record_id
+          in: query
+          schema:
+            type: string
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+        - name: page
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Photos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  photos:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Photo"
+    post:
+      tags:
+        - Photos
+      summary: Upload photo
+      description: Uploads a photo file. Must be uploaded before the parent record references it.
+      operationId: uploadPhoto
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                access_key:
+                  type: string
+                  description: UUID generated by the client used as the photo identifier
+                file:
+                  type: string
+                  format: binary
+              required:
+                - access_key
+                - file
+      responses:
+        "200":
+          description: Photo created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  photo:
+                    $ref: "#/components/schemas/Photo"
+  /photos/{id}.json:
+    parameters:
+      - $ref: "#/components/parameters/IdPath"
+    get:
+      tags:
+        - Photos
+      summary: Get photo metadata
+      operationId: getPhoto
+      responses:
+        "200":
+          description: Photo metadata
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  photo:
+                    $ref: "#/components/schemas/Photo"
+  /photos/{id}.jpg:
+    parameters:
+      - $ref: "#/components/parameters/IdPath"
+    get:
+      tags:
+        - Photos
+      summary: Download photo
+      operationId: downloadPhoto
+      responses:
+        "200":
+          description: Photo binary
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+  /videos.json:
+    get:
+      tags:
+        - Videos
+      summary: List videos
+      operationId: listVideos
+      responses:
+        "200":
+          description: Videos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  videos:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Media"
+    post:
+      tags:
+        - Videos
+      summary: Upload video
+      operationId: uploadVideo
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                access_key:
+                  type: string
+                file:
+                  type: string
+                  format: binary
+              required:
+                - access_key
+                - file
+      responses:
+        "200":
+          description: Video uploaded
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  video:
+                    $ref: "#/components/schemas/Media"
+  /audio.json:
+    get:
+      tags:
+        - Audio
+      summary: List audio clips
+      operationId: listAudio
+      responses:
+        "200":
+          description: Audio clips
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  audio:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Media"
+    post:
+      tags:
+        - Audio
+      summary: Upload audio
+      operationId: uploadAudio
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                access_key:
+                  type: string
+                file:
+                  type: string
+                  format: binary
+              required:
+                - access_key
+                - file
+      responses:
+        "200":
+          description: Audio uploaded
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  audio:
+                    $ref: "#/components/schemas/Media"
+  /signatures.json:
+    get:
+      tags:
+        - Signatures
+      summary: List signatures
+      operationId: listSignatures
+      responses:
+        "200":
+          description: Signatures
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  signatures:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Media"
+    post:
+      tags:
+        - Signatures
+      summary: Upload signature
+      operationId: uploadSignature
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                access_key:
+                  type: string
+                file:
+                  type: string
+                  format: binary
+              required:
+                - access_key
+                - file
+      responses:
+        "200":
+          description: Signature uploaded
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  signature:
+                    $ref: "#/components/schemas/Media"
+  /choice_lists.json:
+    get:
+      tags:
+        - Choice Lists
+      summary: List choice lists
+      operationId: listChoiceLists
+      responses:
+        "200":
+          description: Choice lists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  choice_lists:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ChoiceList"
+    post:
+      tags:
+        - Choice Lists
+      summary: Create choice list
+      operationId: createChoiceList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                choice_list:
+                  $ref: "#/components/schemas/ChoiceList"
+      responses:
+        "200":
+          description: Choice list created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  choice_list:
+                    $ref: "#/components/schemas/ChoiceList"
+  /choice_lists/{id}.json:
+    parameters:
+      - $ref: "#/components/parameters/IdPath"
+    get:
+      tags:
+        - Choice Lists
+      summary: Get choice list
+      operationId: getChoiceList
+      responses:
+        "200":
+          description: Choice list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  choice_list:
+                    $ref: "#/components/schemas/ChoiceList"
+    put:
+      tags:
+        - Choice Lists
+      summary: Update choice list
+      operationId: updateChoiceList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                choice_list:
+                  $ref: "#/components/schemas/ChoiceList"
+      responses:
+        "200":
+          description: Choice list updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  choice_list:
+                    $ref: "#/components/schemas/ChoiceList"
+    delete:
+      tags:
+        - Choice Lists
+      summary: Delete choice list
+      operationId: deleteChoiceList
+      responses:
+        "204":
+          description: Choice list deleted
+  /classification_sets.json:
+    get:
+      tags:
+        - Classification Sets
+      summary: List classification sets
+      operationId: listClassificationSets
+      responses:
+        "200":
+          description: Classification sets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  classification_sets:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ClassificationSet"
+    post:
+      tags:
+        - Classification Sets
+      summary: Create classification set
+      operationId: createClassificationSet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                classification_set:
+                  $ref: "#/components/schemas/ClassificationSet"
+      responses:
+        "200":
+          description: Classification set created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  classification_set:
+                    $ref: "#/components/schemas/ClassificationSet"
+  /classification_sets/{id}.json:
+    parameters:
+      - $ref: "#/components/parameters/IdPath"
+    get:
+      tags:
+        - Classification Sets
+      summary: Get classification set
+      operationId: getClassificationSet
+      responses:
+        "200":
+          description: Classification set
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  classification_set:
+                    $ref: "#/components/schemas/ClassificationSet"
+    put:
+      tags:
+        - Classification Sets
+      summary: Update classification set
+      operationId: updateClassificationSet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                classification_set:
+                  $ref: "#/components/schemas/ClassificationSet"
+      responses:
+        "200":
+          description: Classification set updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  classification_set:
+                    $ref: "#/components/schemas/ClassificationSet"
+    delete:
+      tags:
+        - Classification Sets
+      summary: Delete classification set
+      operationId: deleteClassificationSet
+      responses:
+        "204":
+          description: Classification set deleted
+  /projects.json:
+    get:
+      tags:
+        - Projects
+      summary: List projects
+      operationId: listProjects
+      responses:
+        "200":
+          description: Projects
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  projects:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Project"
+    post:
+      tags:
+        - Projects
+      summary: Create project
+      operationId: createProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                project:
+                  $ref: "#/components/schemas/Project"
+      responses:
+        "200":
+          description: Project created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  project:
+                    $ref: "#/components/schemas/Project"
+  /projects/{id}.json:
+    parameters:
+      - $ref: "#/components/parameters/IdPath"
+    get:
+      tags:
+        - Projects
+      summary: Get project
+      operationId: getProject
+      responses:
+        "200":
+          description: Project
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  project:
+                    $ref: "#/components/schemas/Project"
+    put:
+      tags:
+        - Projects
+      summary: Update project
+      operationId: updateProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                project:
+                  $ref: "#/components/schemas/Project"
+      responses:
+        "200":
+          description: Project updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  project:
+                    $ref: "#/components/schemas/Project"
+    delete:
+      tags:
+        - Projects
+      summary: Delete project
+      operationId: deleteProject
+      responses:
+        "204":
+          description: Project deleted
+  /layers.json:
+    get:
+      tags:
+        - Layers
+      summary: List layers
+      operationId: listLayers
+      responses:
+        "200":
+          description: Layers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  layers:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Layer"
+    post:
+      tags:
+        - Layers
+      summary: Create layer
+      operationId: createLayer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                layer:
+                  $ref: "#/components/schemas/Layer"
+      responses:
+        "200":
+          description: Layer created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  layer:
+                    $ref: "#/components/schemas/Layer"
+  /layers/{id}.json:
+    parameters:
+      - $ref: "#/components/parameters/IdPath"
+    get:
+      tags:
+        - Layers
+      summary: Get layer
+      operationId: getLayer
+      responses:
+        "200":
+          description: Layer
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  layer:
+                    $ref: "#/components/schemas/Layer"
+    put:
+      tags:
+        - Layers
+      summary: Update layer
+      operationId: updateLayer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                layer:
+                  $ref: "#/components/schemas/Layer"
+      responses:
+        "200":
+          description: Layer updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  layer:
+                    $ref: "#/components/schemas/Layer"
+    delete:
+      tags:
+        - Layers
+      summary: Delete layer
+      operationId: deleteLayer
+      responses:
+        "204":
+          description: Layer deleted
+  /memberships.json:
+    get:
+      tags:
+        - Memberships
+      summary: List memberships
+      operationId: listMemberships
+      responses:
+        "200":
+          description: Memberships
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  memberships:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Membership"
+  /memberships/{id}.json:
+    parameters:
+      - $ref: "#/components/parameters/IdPath"
+    put:
+      tags:
+        - Memberships
+      summary: Update membership
+      operationId: updateMembership
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                membership:
+                  $ref: "#/components/schemas/Membership"
+      responses:
+        "200":
+          description: Membership updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  membership:
+                    $ref: "#/components/schemas/Membership"
+  /roles.json:
+    get:
+      tags:
+        - Roles
+      summary: List roles
+      operationId: listRoles
+      responses:
+        "200":
+          description: Roles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  roles:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Role"
+    post:
+      tags:
+        - Roles
+      summary: Create role
+      operationId: createRole
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                role:
+                  $ref: "#/components/schemas/Role"
+      responses:
+        "200":
+          description: Role created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  role:
+                    $ref: "#/components/schemas/Role"
+  /roles/{id}.json:
+    parameters:
+      - $ref: "#/components/parameters/IdPath"
+    get:
+      tags:
+        - Roles
+      summary: Get role
+      operationId: getRole
+      responses:
+        "200":
+          description: Role
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  role:
+                    $ref: "#/components/schemas/Role"
+    put:
+      tags:
+        - Roles
+      summary: Update role
+      operationId: updateRole
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                role:
+                  $ref: "#/components/schemas/Role"
+      responses:
+        "200":
+          description: Role updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  role:
+                    $ref: "#/components/schemas/Role"
+    delete:
+      tags:
+        - Roles
+      summary: Delete role
+      operationId: deleteRole
+      responses:
+        "204":
+          description: Role deleted
+  /webhooks.json:
+    get:
+      tags:
+        - Webhooks
+      summary: List webhooks
+      operationId: listWebhooks
+      responses:
+        "200":
+          description: Webhooks
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  webhooks:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Webhook"
+    post:
+      tags:
+        - Webhooks
+      summary: Create webhook
+      operationId: createWebhook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                webhook:
+                  $ref: "#/components/schemas/Webhook"
+      responses:
+        "200":
+          description: Webhook created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  webhook:
+                    $ref: "#/components/schemas/Webhook"
+  /webhooks/{id}.json:
+    parameters:
+      - $ref: "#/components/parameters/IdPath"
+    get:
+      tags:
+        - Webhooks
+      summary: Get webhook
+      operationId: getWebhook
+      responses:
+        "200":
+          description: Webhook
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  webhook:
+                    $ref: "#/components/schemas/Webhook"
+    put:
+      tags:
+        - Webhooks
+      summary: Update webhook
+      operationId: updateWebhook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                webhook:
+                  $ref: "#/components/schemas/Webhook"
+      responses:
+        "200":
+          description: Webhook updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  webhook:
+                    $ref: "#/components/schemas/Webhook"
+    delete:
+      tags:
+        - Webhooks
+      summary: Delete webhook
+      operationId: deleteWebhook
+      responses:
+        "204":
+          description: Webhook deleted
+  /changesets.json:
+    get:
+      tags:
+        - Changesets
+      summary: List changesets
+      operationId: listChangesets
+      responses:
+        "200":
+          description: Changesets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  changesets:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Changeset"
+  /changesets/{id}.json:
+    parameters:
+      - $ref: "#/components/parameters/IdPath"
+    get:
+      tags:
+        - Changesets
+      summary: Get changeset
+      operationId: getChangeset
+      responses:
+        "200":
+          description: Changeset
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  changeset:
+                    $ref: "#/components/schemas/Changeset"
+  /query:
+    get:
+      tags:
+        - Query
+      summary: Execute SQL query
+      description: >-
+        Runs an ad hoc SQL query against the read-only Fulcrum query database
+        and returns results as JSON, CSV, GeoJSON, KML, or another supported
+        format depending on the format parameter.
+      operationId: executeQuery
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: SQL query string
+          schema:
+            type: string
+        - name: format
+          in: query
+          description: Result format
+          schema:
+            type: string
+            enum:
+              - json
+              - csv
+              - geojson
+              - kml
+      responses:
+        "200":
+          description: Query results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fields:
+                    type: array
+                    items:
+                      type: object
+                  rows:
+                    type: array
+                    items:
+                      type: object
+            text/csv:
+              schema:
+                type: string
+            application/vnd.geo+json:
+              schema:
+                type: object
+components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier (UUID)
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    ApiToken:
+      type: apiKey
+      in: header
+      name: X-ApiToken
+      description: Fulcrum API token issued from a Fulcrum account
+  schemas:
+    Form:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        elements:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        status_field:
+          type: object
+          additionalProperties: true
+        record_count:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Record:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        form_id:
+          type: string
+          format: uuid
+        project_id:
+          type: string
+          format: uuid
+          nullable: true
+        assigned_to_id:
+          type: string
+          format: uuid
+          nullable: true
+        status:
+          type: string
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        altitude:
+          type: number
+          format: double
+          nullable: true
+        form_values:
+          type: object
+          additionalProperties: true
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Photo:
+      type: object
+      properties:
+        access_key:
+          type: string
+        record_id:
+          type: string
+          format: uuid
+        form_id:
+          type: string
+          format: uuid
+        latitude:
+          type: number
+        longitude:
+          type: number
+        file_size:
+          type: integer
+        content_type:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Media:
+      type: object
+      properties:
+        access_key:
+          type: string
+        record_id:
+          type: string
+          format: uuid
+        form_id:
+          type: string
+          format: uuid
+        file_size:
+          type: integer
+        content_type:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    ChoiceList:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+              value:
+                type: string
+    ClassificationSet:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Layer:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+        attribution:
+          type: string
+    Membership:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+          format: email
+        role_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+    Role:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+    Webhook:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        url:
+          type: string
+          format: uri
+        active:
+          type: boolean
+        events:
+          type: array
+          items:
+            type: string
+    Changeset:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        form_id:
+          type: string
+          format: uuid
+        metadata:
+          type: object
+          additionalProperties: true
+        created_at:
+          type: string
+          format: date-time
+        closed_at:
+          type: string
+          format: date-time
+          nullable: true
+security:
+  - ApiToken: []

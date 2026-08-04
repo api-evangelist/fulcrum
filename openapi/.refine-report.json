@@ -1,0 +1,42 @@
+{
+  "provider": "fulcrum",
+  "sources": [
+    "fulcrum-audio-api-openapi.yml",
+    "fulcrum-changesets-api-openapi.yml",
+    "fulcrum-choice-lists-api-openapi.yml",
+    "fulcrum-classification-sets-api-openapi.yml",
+    "fulcrum-forms-api-openapi.yml",
+    "fulcrum-layers-api-openapi.yml",
+    "fulcrum-memberships-api-openapi.yml",
+    "fulcrum-photos-api-openapi.yml",
+    "fulcrum-projects-api-openapi.yml",
+    "fulcrum-query-api-openapi.yml",
+    "fulcrum-records-api-openapi.yml",
+    "fulcrum-roles-api-openapi.yml",
+    "fulcrum-signatures-api-openapi.yml",
+    "fulcrum-videos-api-openapi.yml",
+    "fulcrum-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "fulcrum-audio-api-openapi.yml",
+    "fulcrum-changesets-api-openapi.yml",
+    "fulcrum-choice-lists-api-openapi.yml",
+    "fulcrum-classification-sets-api-openapi.yml",
+    "fulcrum-forms-api-openapi.yml",
+    "fulcrum-layers-api-openapi.yml",
+    "fulcrum-memberships-api-openapi.yml",
+    "fulcrum-photos-api-openapi.yml",
+    "fulcrum-projects-api-openapi.yml",
+    "fulcrum-query-api-openapi.yml",
+    "fulcrum-records-api-openapi.yml",
+    "fulcrum-roles-api-openapi.yml",
+    "fulcrum-signatures-api-openapi.yml",
+    "fulcrum-videos-api-openapi.yml",
+    "fulcrum-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
