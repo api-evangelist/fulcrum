@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fulcrum Audio Choice Lists API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ApiToken",
+      "value": "{{X-ApiToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Choice Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List choice lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/choice_lists.json"
+          },
+          "docs": "List choice lists"
+        },
+        {
+          "info": {
+            "name": "Create choice list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fulcrumapp.com/api/v2/choice_lists.json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create choice list"
+        },
+        {
+          "info": {
+            "name": "Get choice list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/choice_lists/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Get choice list"
+        },
+        {
+          "info": {
+            "name": "Update choice list",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.fulcrumapp.com/api/v2/choice_lists/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update choice list"
+        },
+        {
+          "info": {
+            "name": "Delete choice list",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.fulcrumapp.com/api/v2/choice_lists/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Delete choice list"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,211 @@
+{
+  "item": [
+    {
+      "id": "8fd03b44-9b09-4106-98d4-7f0797e0929c",
+      "name": "Changesets",
+      "description": {
+        "content": "Grouped record changes for sync and audit",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "564856a9-0962-42b3-987f-eaeb9096d2d0",
+          "name": "List changesets",
+          "request": {
+            "name": "List changesets",
+            "description": {},
+            "url": {
+              "path": [
+                "changesets.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "840c002a-5b2f-43b4-ab07-76a0dbedbe42",
+              "name": "Changesets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "changesets.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"changesets\": [\n    {\n      \"id\": \"a2ca081e-2eed-aacb-4f5b-f84cc33d6b7f\",\n      \"form_id\": \"a9e4e253-ae76-4732-2e93-70b114f39b44\",\n      \"metadata\": {\n        \"key_0\": 9128\n      },\n      \"created_at\": \"1988-11-02T13:57:01.260Z\",\n      \"closed_at\": \"1961-12-24T14:51:36.785Z\"\n    },\n    {\n      \"id\": \"19a785f3-5e9b-3ec7-e323-bd68316f89c1\",\n      \"form_id\": \"0bdcebf1-8cc3-0b89-a43b-27a0319d1d38\",\n      \"metadata\": {\n        \"key_0\": 5582,\n        \"key_1\": 9214\n      },\n      \"created_at\": \"2010-06-21T07:01:14.752Z\",\n      \"closed_at\": \"1954-11-03T22:55:04.471Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7b3b09b-73fe-4e23-b574-0d0ec3f5393b",
+          "name": "Get changeset",
+          "request": {
+            "name": "Get changeset",
+            "description": {},
+            "url": {
+              "path": [
+                "changesets",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41c61501-1e35-48d0-b09c-0d3cf976b278",
+              "name": "Changeset",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "changesets",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"changeset\": {\n    \"id\": \"88643ca6-2cdd-55fb-5a83-614ec7a96c35\",\n    \"form_id\": \"aed49b1b-c347-6f1b-d809-6dd13c8b838b\",\n    \"metadata\": {\n      \"key_0\": 9024.663284023758,\n      \"key_1\": 1457.9180826064141\n    },\n    \"created_at\": \"1992-12-22T23:04:13.750Z\",\n    \"closed_at\": \"2005-10-14T22:53:37.294Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fulcrumapp.com/api/v2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Resource identifier (UUID)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "id"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ApiToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6b203de6-fb45-4118-8073-af0eca868561",
+    "name": "Fulcrum Audio Changesets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.\n\nContact Support:\n Name: Fulcrum",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,472 @@
+{
+  "item": [
+    {
+      "id": "608ea95d-6ca6-477c-b167-7d5f6d22cfc2",
+      "name": "Choice Lists",
+      "description": {
+        "content": "Reusable choice lists referenced by form fields",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2aa9bab1-af97-459b-8d2d-86b552af219d",
+          "name": "List choice lists",
+          "request": {
+            "name": "List choice lists",
+            "description": {},
+            "url": {
+              "path": [
+                "choice_lists.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de84c7f1-c95a-4953-8ac9-6910f1567687",
+              "name": "Choice lists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "choice_lists.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"choice_lists\": [\n    {\n      \"id\": \"293972bb-93db-a17a-5428-d67dc53cbefb\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"choices\": [\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"e811b377-dd3e-30b6-5639-5ff289e4046f\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"choices\": [\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"label\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a5ef4aa-f5d8-4a2e-8f7f-435e0a912891",
+          "name": "Create choice list",
+          "request": {
+            "name": "Create choice list",
+            "description": {},
+            "url": {
+              "path": [
+                "choice_lists.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"choice_list\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"choices\": [\n      {\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "079f50da-e9b4-4a76-af2f-47ad9f9ef427",
+              "name": "Choice list created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "choice_lists.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"choice_list\": {\n    \"id\": \"5b324a9d-e2d8-9053-5891-e143816cff22\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"choices\": [\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"choice_list\": {\n    \"id\": \"5b324a9d-e2d8-9053-5891-e143816cff22\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"choices\": [\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b952ff7-0dde-4939-be52-cff5de2e881c",
+          "name": "Get choice list",
+          "request": {
+            "name": "Get choice list",
+            "description": {},
+            "url": {
+              "path": [
+                "choice_lists",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b96ee93-bb9f-46b5-8d80-e4e9f41c4f40",
+              "name": "Choice list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "choice_lists",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"choice_list\": {\n    \"id\": \"5b324a9d-e2d8-9053-5891-e143816cff22\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"choices\": [\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bebc8c4-db53-4f83-92a4-b4ccf5bb05a1",
+          "name": "Update choice list",
+          "request": {
+            "name": "Update choice list",
+            "description": {},
+            "url": {
+              "path": [
+                "choice_lists",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"choice_list\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"choices\": [\n      {\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c1997547-0c52-4c8d-bf43-baa4332e2ce1",
+              "name": "Choice list updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "choice_lists",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"choice_list\": {\n    \"id\": \"5b324a9d-e2d8-9053-5891-e143816cff22\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"choices\": [\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"choice_list\": {\n    \"id\": \"5b324a9d-e2d8-9053-5891-e143816cff22\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"choices\": [\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"label\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05a172c2-0541-4386-b6d3-276c51334d38",
+          "name": "Delete choice list",
+          "request": {
+            "name": "Delete choice list",
+            "description": {},
+            "url": {
+              "path": [
+                "choice_lists",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5234ab99-850f-4237-9152-1692ab825f09",
+              "name": "Choice list deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "choice_lists",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fulcrumapp.com/api/v2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Resource identifier (UUID)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "id"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ApiToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fa5a05ac-01e6-4c8a-8e9f-b5554c8a07fc",
+    "name": "Fulcrum Audio Choice Lists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.\n\nContact Support:\n Name: Fulcrum",
+      "type": "text/plain"
+    }
+  }
+}

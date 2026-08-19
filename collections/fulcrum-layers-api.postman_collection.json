@@ -1,0 +1,472 @@
+{
+  "item": [
+    {
+      "id": "b35b5342-e874-4170-a633-dc65e7fc79f5",
+      "name": "Layers",
+      "description": {
+        "content": "Layers and tile sources used by forms",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e2d3279e-abd5-4d85-9c2e-056a2a07f624",
+          "name": "List layers",
+          "request": {
+            "name": "List layers",
+            "description": {},
+            "url": {
+              "path": [
+                "layers.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a7afb9a-2c49-462c-96a8-ccb8693c1dd6",
+              "name": "Layers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layers.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"layers\": [\n    {\n      \"id\": \"629d0a0f-8492-020c-0585-715530c2eb98\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"url\": \"string\",\n      \"attribution\": \"string\"\n    },\n    {\n      \"id\": \"e6779a84-32a5-7f64-aa23-a62668e8b749\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"url\": \"string\",\n      \"attribution\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76952153-b09f-40f2-84d2-8e94dbc5b75c",
+          "name": "Create layer",
+          "request": {
+            "name": "Create layer",
+            "description": {},
+            "url": {
+              "path": [
+                "layers.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"layer\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"attribution\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7f48afd8-ff4f-4881-aa5c-7ffe4c7b5149",
+              "name": "Layer created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layers.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"layer\": {\n    \"id\": \"0b219ae9-c22c-f55a-b17a-92771451ef3f\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"url\": \"string\",\n    \"attribution\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"layer\": {\n    \"id\": \"0b219ae9-c22c-f55a-b17a-92771451ef3f\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"url\": \"string\",\n    \"attribution\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4464242c-ee66-4e81-b717-0f9fcd9aa1c2",
+          "name": "Get layer",
+          "request": {
+            "name": "Get layer",
+            "description": {},
+            "url": {
+              "path": [
+                "layers",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aaf1bed1-1f85-4e7a-b24a-c25ea6e87127",
+              "name": "Layer",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layers",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"layer\": {\n    \"id\": \"0b219ae9-c22c-f55a-b17a-92771451ef3f\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"url\": \"string\",\n    \"attribution\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fab9472d-ea9f-4e6c-89e7-b74cca11d046",
+          "name": "Update layer",
+          "request": {
+            "name": "Update layer",
+            "description": {},
+            "url": {
+              "path": [
+                "layers",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"layer\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"attribution\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "97c5bd61-eed7-4ef3-b9f2-472edab50182",
+              "name": "Layer updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layers",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"layer\": {\n    \"id\": \"0b219ae9-c22c-f55a-b17a-92771451ef3f\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"url\": \"string\",\n    \"attribution\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"layer\": {\n    \"id\": \"0b219ae9-c22c-f55a-b17a-92771451ef3f\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"url\": \"string\",\n    \"attribution\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a3723c2-9a68-4f51-a162-28329b98c627",
+          "name": "Delete layer",
+          "request": {
+            "name": "Delete layer",
+            "description": {},
+            "url": {
+              "path": [
+                "layers",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fdfb6f2-605c-4cac-a091-2de8e86cea23",
+              "name": "Layer deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "layers",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fulcrumapp.com/api/v2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Resource identifier (UUID)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "id"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ApiToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cd72d541-2374-44c9-a40d-ab2ecbc656da",
+    "name": "Fulcrum Audio Layers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.\n\nContact Support:\n Name: Fulcrum",
+      "type": "text/plain"
+    }
+  }
+}

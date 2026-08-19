@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fulcrum Audio Photos API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ApiToken",
+      "value": "{{X-ApiToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Photos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/photos.json",
+            "params": [
+              {
+                "name": "form_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "record_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List photos"
+        },
+        {
+          "info": {
+            "name": "Upload photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fulcrumapp.com/api/v2/photos.json",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "access_key",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Uploads a photo file. Must be uploaded before the parent record references it."
+        },
+        {
+          "info": {
+            "name": "Get photo metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/photos/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Get photo metadata"
+        },
+        {
+          "info": {
+            "name": "Download photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/photos/:id.jpg",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Download photo"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

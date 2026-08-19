@@ -1,0 +1,241 @@
+{
+  "item": [
+    {
+      "id": "34f63cc5-3877-483c-91c1-e5b3561236c4",
+      "name": "Videos",
+      "description": {
+        "content": "Video media attached to records",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f397c135-3fd3-46aa-9ad0-2c2040b633ac",
+          "name": "List videos",
+          "request": {
+            "name": "List videos",
+            "description": {},
+            "url": {
+              "path": [
+                "videos.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf01b0a0-18ec-4d6c-8574-c050f84e21b1",
+              "name": "Videos",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"videos\": [\n    {\n      \"access_key\": \"string\",\n      \"record_id\": \"c2c6e4a6-ccf6-68a8-0c1e-98d6b3bd86ee\",\n      \"form_id\": \"90147ebf-71b6-7c7e-4f84-34a72376c8c1\",\n      \"file_size\": 4642,\n      \"content_type\": \"string\",\n      \"created_at\": \"1954-09-12T03:46:08.566Z\",\n      \"updated_at\": \"1963-08-23T17:30:36.487Z\"\n    },\n    {\n      \"access_key\": \"string\",\n      \"record_id\": \"7aaf91a2-c1f0-5841-0549-5ce982fa2563\",\n      \"form_id\": \"589af445-aec7-b86d-7ceb-b11bb97433f1\",\n      \"file_size\": 8708,\n      \"content_type\": \"string\",\n      \"created_at\": \"1994-03-20T09:41:42.373Z\",\n      \"updated_at\": \"1996-01-02T02:04:59.136Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0013d944-5b06-4c36-aedb-456ec45f2887",
+          "name": "Upload video",
+          "request": {
+            "name": "Upload video",
+            "description": {},
+            "url": {
+              "path": [
+                "videos.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "access_key",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) "
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5707e387-948c-4fed-a9e8-4f8214cb6701",
+              "name": "Video uploaded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "access_key",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"video\": {\n    \"access_key\": \"string\",\n    \"record_id\": \"6c666c86-b384-8913-7e2f-b72406b9da71\",\n    \"form_id\": \"0072ea56-e6e4-f18d-3772-77ec66cc051a\",\n    \"file_size\": 1178,\n    \"content_type\": \"string\",\n    \"created_at\": \"2004-11-21T17:04:39.178Z\",\n    \"updated_at\": \"1959-08-01T16:48:16.603Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fulcrumapp.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ApiToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fc87e76d-cda5-4f9e-821e-1cebb6bf4513",
+    "name": "Fulcrum Audio Videos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.\n\nContact Support:\n Name: Fulcrum",
+      "type": "text/plain"
+    }
+  }
+}

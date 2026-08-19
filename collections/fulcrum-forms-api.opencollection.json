@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fulcrum Audio Forms API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ApiToken",
+      "value": "{{X-ApiToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Forms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List forms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/forms.json"
+          },
+          "docs": "Returns a list of all forms (apps) the authenticated account has access to."
+        },
+        {
+          "info": {
+            "name": "Create form",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fulcrumapp.com/api/v2/forms.json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create form"
+        },
+        {
+          "info": {
+            "name": "Get form",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/forms/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Get form"
+        },
+        {
+          "info": {
+            "name": "Update form",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.fulcrumapp.com/api/v2/forms/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update form"
+        },
+        {
+          "info": {
+            "name": "Delete form",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.fulcrumapp.com/api/v2/forms/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Delete form"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

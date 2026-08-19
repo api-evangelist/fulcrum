@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fulcrum Audio Records API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ApiToken",
+      "value": "{{X-ApiToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Records",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/records.json",
+            "params": [
+              {
+                "name": "form_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by form (app) identifier"
+              },
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by project identifier"
+              },
+              {
+                "name": "assigned_to_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by assignment"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by record status"
+              },
+              {
+                "name": "bounding_box",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated south,west,north,east bounding box"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns records that match the supplied filters."
+        },
+        {
+          "info": {
+            "name": "Create record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fulcrumapp.com/api/v2/records.json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create record"
+        },
+        {
+          "info": {
+            "name": "Get record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/records/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Get record"
+        },
+        {
+          "info": {
+            "name": "Update record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.fulcrumapp.com/api/v2/records/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update record"
+        },
+        {
+          "info": {
+            "name": "Delete record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.fulcrumapp.com/api/v2/records/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Delete record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

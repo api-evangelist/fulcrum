@@ -1,0 +1,169 @@
+# Fulcrum Documentation
+
+> Fulcrum's API provides programmatic access to forms, records, and other objects in your organization.
+
+## Guides
+- [Developer Information](https://docs.fulcrumapp.com/docs/developer-information.md)
+- [Sharing Data](https://docs.fulcrumapp.com/docs/data-shares.md): Fulcrum provides many ways of using and sharing the data that has been collected by your organization.
+- [URL Actions](https://docs.fulcrumapp.com/docs/url-actions.md)
+- [CHOICEVALUES](https://docs.fulcrumapp.com/docs/calculations-ref-choicevalues.md)
+- [CONCATENATE](https://docs.fulcrumapp.com/docs/calculations-ref-concatenate.md)
+- [DATANAMES](https://docs.fulcrumapp.com/docs/calculations-ref-datanames.md)
+- [EMAIL](https://docs.fulcrumapp.com/docs/calculations-ref-email.md)
+- [FIELDTYPE](https://docs.fulcrumapp.com/docs/calculations-ref-fieldtype.md)
+- [GEOMETRYAREA](https://docs.fulcrumapp.com/docs/geometryarea.md)
+- [GEOMETRYLENGTH](https://docs.fulcrumapp.com/docs/geometrylength.md)
+- [UNIQUE](https://docs.fulcrumapp.com/docs/calculations-ref-unique.md)
+- [Reference Record Updated At Time](https://docs.fulcrumapp.com/docs/reference-record-updated-at-time.md): The record's `this` object contains a handful of information including record created/updated time, location, and duration.  The expression below will generate a time stamp of record update date and time.
+- [Week Number](https://docs.fulcrumapp.com/docs/week-of-the-year.md)
+- [Data Events Reference](https://docs.fulcrumapp.com/docs/data-events-reference.md)
+- [INFERENCE](https://docs.fulcrumapp.com/docs/data-events-inference.md)
+- [LOADFILE](https://docs.fulcrumapp.com/docs/data-events-loadfile.md)
+- [LOADFORM](https://docs.fulcrumapp.com/docs/data-events-loadform.md)
+- [LOADRECORDS](https://docs.fulcrumapp.com/docs/data-events-loadrecords.md)
+- [RECOGNIZETEXT](https://docs.fulcrumapp.com/docs/data-events-recognizetext.md)
+- [REQUEST](https://docs.fulcrumapp.com/docs/data-events-request.md)
+- [SETASSIGNMENT](https://docs.fulcrumapp.com/docs/setassignment.md)
+- [SETCHOICEFILTER](https://docs.fulcrumapp.com/docs/data-events-setchoicefilter.md)
+- [Capture Timestamp](https://docs.fulcrumapp.com/docs/capture-timestamp.md): This data event uses the Yes/No field to capture the current time (HH:MM:SS) and populates it into a text field.
+- [Create a summary field of comments entered when record is edited multiple times](https://docs.fulcrumapp.com/docs/create-a-summary-field-of-comments-entered-when-record-is-edited-multiple-times.md): This example will create a summary field to keep track of comments past users have entered. You will need to add a text field (read-only optional) to your form.  To utilize the below code, you will name the summary text field `summary` and have a text field called  `comment`.
+- [Measure Area and Length of Polygon](https://docs.fulcrumapp.com/docs/measure-area-and-length-of-polygon.md)
+- [Measure Length of Line](https://docs.fulcrumapp.com/docs/measure-length-of-line.md)
+- [Repeatable record sorting](https://docs.fulcrumapp.com/docs/repeatable-record-sorting.md): This example will force the sorting of child records in a repeatable section based on the field with the data name `field_data_name`. To make this work in your app you will need to update the word repeatable with the data name of your repeatable section and update the word `field_data_name` with the data name of the field you want to sort by.
+- [Timer](https://docs.fulcrumapp.com/docs/basic-timer.md)
+- [Create Repeatables](https://docs.fulcrumapp.com/docs/create-repeatables.md): Create a new repeatable using a hyperlink field
+- [Functions](https://docs.fulcrumapp.com/docs/functions.md)
+- [Cover Page](https://docs.fulcrumapp.com/docs/cover-page.md)
+- [Format Text Fields](https://docs.fulcrumapp.com/docs/format-text-fields.md): Here's a quick tutorial on how to use this custom formatting for converting text into HTML with specific tags based on control characters. This method allows you to add line breaks, lists, bold, and italic styling without needing HTML knowledge. Simply include specific markers in your text, and a JavaScript function will convert them into proper HTML elements.
+- [Form Schema](https://docs.fulcrumapp.com/docs/print-the-app-schema-simple.md)
+- [Repeatable Field (Child Records)](https://docs.fulcrumapp.com/docs/repeatable-field-child-records.md)
+- [Sketches](https://docs.fulcrumapp.com/docs/sketches.md): Learn how to include sketches in custom reports
+- [Timezone](https://docs.fulcrumapp.com/docs/timezone.md)
+- [Record Links](https://docs.fulcrumapp.com/docs/record-links.md)
+- [Introduction](https://docs.fulcrumapp.com/docs/utilities-introduction.md): A collection of tools and utilities that complement the Fulcrum platform and help you get more out of your data.
+
+## API Reference
+- [Introduction](https://docs.fulcrumapp.com/reference/rest-api-intro.md)
+- [AWS Interactions](https://docs.fulcrumapp.com/reference/aws-interactions.md)
+- [Working with the Australian, Canadian or European Instances](https://docs.fulcrumapp.com/reference/working-with-other-instances.md)
+- [OpenAPI and Postman Collection](https://docs.fulcrumapp.com/reference/openapi-and-postman-collection.md)
+- [Introduction](https://docs.fulcrumapp.com/reference/query-intro.md)
+- [POST Query](https://docs.fulcrumapp.com/reference/query-post.md): Execute a Query API request using HTTP POST. Provide a SQL like query to query against your organization's data.
+- [Get Single Authorization](https://docs.fulcrumapp.com/reference/authorizations-get-single.md)
+- [Update Authorization](https://docs.fulcrumapp.com/reference/authorizations-update.md)
+- [Delete Authorization](https://docs.fulcrumapp.com/reference/authorizations-delete.md)
+- [Get All Roles](https://docs.fulcrumapp.com/reference/roles-get-all.md)
+- [Get Single Membership](https://docs.fulcrumapp.com/reference/memberships-get-single.md)
+- [Create Member](https://docs.fulcrumapp.com/reference/create-member.md)
+- [Update Member](https://docs.fulcrumapp.com/reference/update-member.md): You can use this to update parameters of a member, but this will not work if the member is apart of multiple organizations.
+- [Delete Member](https://docs.fulcrumapp.com/reference/delete-member.md)
+- [Get Single Group](https://docs.fulcrumapp.com/reference/get-single-group.md)
+- [Get Group Resource](https://docs.fulcrumapp.com/reference/get-group-resource.md)
+- [Update Group Name / Description](https://docs.fulcrumapp.com/reference/update-group-name-description.md)
+- [Delete Group](https://docs.fulcrumapp.com/reference/delete-group.md)
+- [Forms API](https://docs.fulcrumapp.com/reference/forms-intro.md)
+- [Get Single Form](https://docs.fulcrumapp.com/reference/forms-get-single.md)
+- [Get Form History](https://docs.fulcrumapp.com/reference/forms-get-history.md)
+- [Update Form](https://docs.fulcrumapp.com/reference/forms-update.md)
+- [Delete Form](https://docs.fulcrumapp.com/reference/forms-delete.md)
+- [Records API](https://docs.fulcrumapp.com/reference/records-intro.md)
+- [Get Single Record](https://docs.fulcrumapp.com/reference/records-get-single.md): Retrieve detailed information about a specific record by its ID. This includes all form field values, location data, timestamps, and associated metadata.
+- [Get Record History](https://docs.fulcrumapp.com/reference/records-get-history.md): Retrieve the complete version history of a record.
+- [Get All Records History](https://docs.fulcrumapp.com/reference/records-get-all-history.md): This endpoint can help you get records from a specific changeset, or retrieve records for a deleted form.
+- [Create Record](https://docs.fulcrumapp.com/reference/records-create.md): Create a new record in the specified form using the provided form values, location information, and any associated metadata.
+- [Update Record](https://docs.fulcrumapp.com/reference/records-update.md): Update a record with a provided record object. The record object is expected to be the complete representation of the record. Any fields not included are assumed null.
+- [Partially Update Record](https://docs.fulcrumapp.com/reference/records-partial-update.md): Update specific fields of an existing record without requiring the complete record object. Only the fields included in the request body will be modified, while all other fields remain unchanged. This is useful for updating individual field values or metadata.
+- [Delete Record](https://docs.fulcrumapp.com/reference/records-delete.md): Delete a record from your organization.
+- [Get Single Choice List](https://docs.fulcrumapp.com/reference/choice-lists-get-single.md)
+- [Update Choice List](https://docs.fulcrumapp.com/reference/choice-lists-update.md)
+- [Delete Choice List](https://docs.fulcrumapp.com/reference/choice-lists-delete.md)
+- [Get Single Classification Set](https://docs.fulcrumapp.com/reference/classification-sets-get-single.md)
+- [Update Classification Set](https://docs.fulcrumapp.com/reference/classification-sets-update.md)
+- [Delete Classification Set](https://docs.fulcrumapp.com/reference/classification-sets-delete.md)
+- [Projects API](https://docs.fulcrumapp.com/reference/projects-intro.md)
+- [Get Single Project](https://docs.fulcrumapp.com/reference/projects-get-single.md)
+- [Update Project](https://docs.fulcrumapp.com/reference/projects-update.md)
+- [Delete Project](https://docs.fulcrumapp.com/reference/projects-delete.md)
+- [Layers API](https://docs.fulcrumapp.com/reference/layers-intro.md)
+- [Get Single Layer](https://docs.fulcrumapp.com/reference/layers-get-single.md)
+- [Update Layer](https://docs.fulcrumapp.com/reference/layers-update.md)
+- [Delete Layer](https://docs.fulcrumapp.com/reference/layers-delete.md)
+- [Get Single Photo Metadata](https://docs.fulcrumapp.com/reference/photos-get-single-metadata.md): Retrieve metadata for a single photo.
+- [Photo Thumbnail Metadata](https://docs.fulcrumapp.com/reference/photos-thumbnail-metadata.md): Retrieve metadata for a photo's thumbnail variant.
+- [Photo Large Metadata](https://docs.fulcrumapp.com/reference/photos-large-metadata.md): Retrieve metadata for a photo's large variant.
+- [Get Single Photo File](https://docs.fulcrumapp.com/reference/photos-get-single-file.md): Download the original photo file.
+- [Photo Thumbnail File](https://docs.fulcrumapp.com/reference/photos-thumbnail-file.md): Download the thumbnail variant of a photo.
+- [Photo Large File](https://docs.fulcrumapp.com/reference/photos-large-file.md): Download the large variant of a photo.
+- [Get Single Signature Metadata](https://docs.fulcrumapp.com/reference/signatures-get-single-metadata.md): Retrieve metadata for a single signature.
+- [Signature Thumbnail Metadata](https://docs.fulcrumapp.com/reference/signatures-get-thumbnail-metadata.md): Retrieve metadata for a signature's thumbnail variant.
+- [Get Single Signature File](https://docs.fulcrumapp.com/reference/signatures-get-single-file.md): Download the original signature file.
+- [Signature Thumbnail File](https://docs.fulcrumapp.com/reference/signatures-get-thumbnail-file.md): Download the thumbnail variant of a signature.
+- [Get Single Sketch Metadata](https://docs.fulcrumapp.com/reference/sketches-get-single-metadata.md): Retrieve metadata for a single sketch.
+- [Sketch Thumbnail Metadata](https://docs.fulcrumapp.com/reference/sketches-thumbnail-metadata.md): Retrieve metadata for a sketch's thumbnail variant.
+- [Sketch Large Metadata](https://docs.fulcrumapp.com/reference/sketches-large-metadata.md): Retrieve metadata for a sketch's large variant.
+- [Get Single Sketch File](https://docs.fulcrumapp.com/reference/sketches-get-single-file.md): Download the original sketch file.
+- [Sketch Thumbnail File](https://docs.fulcrumapp.com/reference/sketches-thumbnail-file.md): Download the thumbnail variant of a sketch.
+- [Sketch Large File](https://docs.fulcrumapp.com/reference/sketches-large-file.md): Download the large variant of a sketch.
+- [Get Original Video File](https://docs.fulcrumapp.com/reference/videos-get-original-file.md): Download the original video file.
+- [Get Video Metadata](https://docs.fulcrumapp.com/reference/videos-get-single-metadata.md): Retrieve metadata for a specific video.
+- [Get GeoJSON Video Track](https://docs.fulcrumapp.com/reference/videos-get-single-track-geojson.md): Get the GPS track for a video in GeoJSON format.
+- [Get KML Video Track](https://docs.fulcrumapp.com/reference/videos-get-single-track-kml.md): Get the GPS track for a video in KML format.
+- [Get GPX Video Track](https://docs.fulcrumapp.com/reference/videos-get-single-track-gpx.md): Get the GPS track for a video in GPX format.
+- [Get JSON Video Track](https://docs.fulcrumapp.com/reference/videos-get-single-track-json.md): Get the GPS track for a video in JSON format.
+- [Get Small Video File](https://docs.fulcrumapp.com/reference/videos-get-small-file.md): Download the small variant of the video.
+- [Get Medium Video File](https://docs.fulcrumapp.com/reference/videos-get-medium-file.md): Download a medium variant of the video.
+- [Get Small Video Thumbnail](https://docs.fulcrumapp.com/reference/videos-get-thumbnail-small.md): Download the small thumbnail variant for a video.
+- [Get Small Square Video Thumbnail](https://docs.fulcrumapp.com/reference/videos-get-thumbnail-small-square.md): Download a small square thumbnail variant for a video.
+- [Get Medium Video Thumbnail](https://docs.fulcrumapp.com/reference/videos-get-thumbnail-medium.md): Download a medium thumbnail variant for a video.
+- [Get Medium Square Video Thumbnail](https://docs.fulcrumapp.com/reference/videos-get-thumbnail-medium-square.md): Download a medium square thumbnail variant for a video.
+- [Get Large Video Thumbnail](https://docs.fulcrumapp.com/reference/videos-get-thumbnail-large.md): Download a large thumbnail variant for a video.
+- [Get Large Square Video Thumbnail](https://docs.fulcrumapp.com/reference/videos-get-thumbnail-large-square.md): Download a large square thumbnail variant for a video.
+- [Get Huge Video Thumbnail](https://docs.fulcrumapp.com/reference/videos-get-thumbnail-huge.md): Download a huge thumbnail variant for a video.
+- [Get Huge Square Video Thumbnail](https://docs.fulcrumapp.com/reference/videos-get-thumbnail-huge-square.md): Download a huge square thumbnail variant for a video.
+- [Get Original Audio File](https://docs.fulcrumapp.com/reference/audio-get-original-file.md): Download the original audio file.
+- [Get Audio Metadata](https://docs.fulcrumapp.com/reference/audio-get-single-metadata.md): Retrieve metadata for a single audio file.
+- [Get GeoJSON Audio Track](https://docs.fulcrumapp.com/reference/audio-get-single-track-geojson.md): Get the GPS track for an audio file in GeoJSON format.
+- [Get KML Audio Track](https://docs.fulcrumapp.com/reference/audio-get-single-track-kml.md): Get the GPS track for an audio file in KML format.
+- [Get GPX Audio Track](https://docs.fulcrumapp.com/reference/audio-get-single-track-gpx.md): Get the GPS track for an audio file in GPX format.
+- [Get JSON Audio Track](https://docs.fulcrumapp.com/reference/audio-get-single-track-json.md): Get the GPS track for an audio file in JSON format.
+- [Get Single Attachment](https://docs.fulcrumapp.com/reference/get-single-attachment.md): Retrieve metadata for a single attachment.
+- [Delete Attachment](https://docs.fulcrumapp.com/reference/delete-attachment.md): The delete endpoint only applies to Form attachments. Use this endpoint to delete an attachment. For record attachments, simply remove the association of an attachment from the record and the attachment will be deleted.
+- [Get Single Changeset](https://docs.fulcrumapp.com/reference/changesets-get-single.md)
+- [Update Changeset](https://docs.fulcrumapp.com/reference/changesets-update.md)
+- [Close Changeset](https://docs.fulcrumapp.com/reference/changesets-close.md)
+- [Webhooks API](https://docs.fulcrumapp.com/reference/webhooks-intro.md)
+- [Get Single Webhook](https://docs.fulcrumapp.com/reference/webhooks-get-single.md): Get a webhook.
+- [Update Webhook](https://docs.fulcrumapp.com/reference/webhooks-update.md): Update a webhook.
+- [Delete Webhook](https://docs.fulcrumapp.com/reference/webhooks-delete.md): Delete a webhook.
+- [Get Single Audit Log](https://docs.fulcrumapp.com/reference/audit-logs-get-single.md)
+- [Workflows API](https://docs.fulcrumapp.com/reference/workflows-api.md)
+- [Get Single Workflow](https://docs.fulcrumapp.com/reference/get-single-workflow.md)
+- [Create Workflow](https://docs.fulcrumapp.com/reference/create-workflow.md)
+- [Update Workflow](https://docs.fulcrumapp.com/reference/update-workflow.md)
+- [Delete Workflow](https://docs.fulcrumapp.com/reference/delete-workflow.md)
+- [Batch API](https://docs.fulcrumapp.com/reference/batch-intro.md)
+- [Get Single Batch](https://docs.fulcrumapp.com/reference/get-single-batch.md)
+- [Create Batch to Bulk Update Records](https://docs.fulcrumapp.com/reference/create-batch-to-bulk-update-records.md): Using the batch operations API, you can bulk update records in a form.
+- [Add batch operations](https://docs.fulcrumapp.com/reference/add-batch-operations.md): Using the batch operations API, you can bulk delete records from a form or update project, assignee, or status values on multiple records.
+- [Start Batch](https://docs.fulcrumapp.com/reference/start-batch.md): Start your pending batch
+- [Report Templates API](https://docs.fulcrumapp.com/reference/report-templates-api.md)
+- [Get All Report Templates](https://docs.fulcrumapp.com/reference/get-all-report-templates.md)
+- [Get Single Report Template](https://docs.fulcrumapp.com/reference/get-single-report-template.md)
+- [Create Report Template](https://docs.fulcrumapp.com/reference/create-report-template.md)
+- [Update Report Template](https://docs.fulcrumapp.com/reference/update-report-template.md)
+- [Delete Report Template](https://docs.fulcrumapp.com/reference/delete-report-template.md)
+- [Reports  API](https://docs.fulcrumapp.com/reference/report-templates-api-copy.md)
+- [Create PDF Report](https://docs.fulcrumapp.com/reference/reports-create.md): Generate a new report for a specific record, optionally using a report template
+- [Reports File](https://docs.fulcrumapp.com/reference/reports-file.md): Download the generated PDF report file.
+
+## Changelog
+- [PATCH Request for a Partial Record Update](https://docs.fulcrumapp.com/changelog/patch-request-for-a-partial-record-update.md)
+- [Sketches API](https://docs.fulcrumapp.com/changelog/sketches-api.md)
+- [Manage App Members Permission Added](https://docs.fulcrumapp.com/changelog/manage-app-members-permission-added.md)
+- [Updated UI and Support for AU/EU versions of the docs](https://docs.fulcrumapp.com/changelog/updated-ui-and-support-for-aueu-versions-of-the-docs.md)
+- [INFERENCE Data Event](https://docs.fulcrumapp.com/changelog/inference-data-event.md)
+- [RECOGNIZETEXT Data Event](https://docs.fulcrumapp.com/changelog/recognizetext-data-event.md)
+- [LOADFILE Data Event](https://docs.fulcrumapp.com/changelog/loadfile-data-event.md)
+- [LOADFORM Data Event](https://docs.fulcrumapp.com/changelog/loadform-data-event.md)
+- [LOADRECORDS Data Event](https://docs.fulcrumapp.com/changelog/loadrecords-data-event.md)
+- [Added timestamps to photo field properties](https://docs.fulcrumapp.com/changelog/added-timestamps-to-photo-field-properties.md)

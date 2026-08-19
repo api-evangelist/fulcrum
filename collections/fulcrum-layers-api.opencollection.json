@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fulcrum Audio Layers API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ApiToken",
+      "value": "{{X-ApiToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Layers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List layers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/layers.json"
+          },
+          "docs": "List layers"
+        },
+        {
+          "info": {
+            "name": "Create layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fulcrumapp.com/api/v2/layers.json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create layer"
+        },
+        {
+          "info": {
+            "name": "Get layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/layers/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Get layer"
+        },
+        {
+          "info": {
+            "name": "Update layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.fulcrumapp.com/api/v2/layers/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update layer"
+        },
+        {
+          "info": {
+            "name": "Delete layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.fulcrumapp.com/api/v2/layers/:id.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Delete layer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,446 @@
+{
+  "item": [
+    {
+      "id": "1639c8b7-a9b4-4ce5-bdab-c8ee8211e5f6",
+      "name": "Photos",
+      "description": {
+        "content": "Photo media attached to records",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f30f37d1-b716-43ec-9bc7-65a6e4247af0",
+          "name": "List photos",
+          "request": {
+            "name": "List photos",
+            "description": {},
+            "url": {
+              "path": [
+                "photos.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "form_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "record_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e0b5e432-fcab-43f9-80ab-bc518d4829b2",
+              "name": "Photos",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "photos.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "form_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "record_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"photos\": [\n    {\n      \"access_key\": \"string\",\n      \"record_id\": \"0e06bc6d-4507-676d-5d11-7a0b34cd964a\",\n      \"form_id\": \"d4300274-5817-77cb-5874-9dc700aab23b\",\n      \"latitude\": 2017.4518437818933,\n      \"longitude\": 3872.807347587809,\n      \"file_size\": 4605,\n      \"content_type\": \"string\",\n      \"created_at\": \"1994-01-31T14:00:23.912Z\",\n      \"updated_at\": \"1985-11-28T03:57:21.868Z\"\n    },\n    {\n      \"access_key\": \"string\",\n      \"record_id\": \"e902f79f-f4b7-eee4-ce04-b88c5fed04d8\",\n      \"form_id\": \"7175d038-dbea-a6d3-4a08-0ce60a315530\",\n      \"latitude\": 7842.293768708597,\n      \"longitude\": 9962.397230718143,\n      \"file_size\": 8823,\n      \"content_type\": \"string\",\n      \"created_at\": \"2007-12-22T03:59:16.740Z\",\n      \"updated_at\": \"2011-02-08T20:47:01.020Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "958e762d-23bd-4966-a02e-4da752eb1f35",
+          "name": "Upload photo",
+          "request": {
+            "name": "Upload photo",
+            "description": {
+              "content": "Uploads a photo file. Must be uploaded before the parent record references it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "photos.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "access_key",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) UUID generated by the client used as the photo identifier"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6f7642fa-7a4e-406c-a98e-c7f6ae1e6150",
+              "name": "Photo created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "photos.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) UUID generated by the client used as the photo identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "access_key",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"photo\": {\n    \"access_key\": \"string\",\n    \"record_id\": \"96e7b97d-a138-a81f-2da4-b1f9ccfc30a0\",\n    \"form_id\": \"11e590d5-6d7e-fbb2-5369-b2341f470f3f\",\n    \"latitude\": 5305.395261649472,\n    \"longitude\": 5806.832561535003,\n    \"file_size\": 3092,\n    \"content_type\": \"string\",\n    \"created_at\": \"1998-09-22T18:58:24.751Z\",\n    \"updated_at\": \"2026-03-30T07:16:27.549Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00cdb036-6216-465e-8cf1-edbd10b51f0b",
+          "name": "Get photo metadata",
+          "request": {
+            "name": "Get photo metadata",
+            "description": {},
+            "url": {
+              "path": [
+                "photos",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59673a85-8f7d-45cb-a692-661fff636352",
+              "name": "Photo metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "photos",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"photo\": {\n    \"access_key\": \"string\",\n    \"record_id\": \"96e7b97d-a138-a81f-2da4-b1f9ccfc30a0\",\n    \"form_id\": \"11e590d5-6d7e-fbb2-5369-b2341f470f3f\",\n    \"latitude\": 5305.395261649472,\n    \"longitude\": 5806.832561535003,\n    \"file_size\": 3092,\n    \"content_type\": \"string\",\n    \"created_at\": \"1998-09-22T18:58:24.751Z\",\n    \"updated_at\": \"2026-03-30T07:16:27.549Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b37306c-1129-4137-9685-8244c8dcd2af",
+          "name": "Download photo",
+          "request": {
+            "name": "Download photo",
+            "description": {},
+            "url": {
+              "path": [
+                "photos",
+                "{{id}}.jpg"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/jpeg"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1733e070-87d4-4dda-bb5b-6d80abdfa171",
+              "name": "Photo binary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "photos",
+                    "{{id}}.jpg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "image/jpeg"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/jpeg"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fulcrumapp.com/api/v2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Resource identifier (UUID)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "id"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ApiToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4ddfb046-f23a-4df4-bfdd-57fc75a6cc6d",
+    "name": "Fulcrum Audio Photos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.\n\nContact Support:\n Name: Fulcrum",
+      "type": "text/plain"
+    }
+  }
+}

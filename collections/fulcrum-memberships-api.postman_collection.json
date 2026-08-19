@@ -1,0 +1,232 @@
+{
+  "item": [
+    {
+      "id": "1561c8a6-338d-45fc-9e1b-2bc7e52e3138",
+      "name": "Memberships",
+      "description": {
+        "content": "Account memberships and assignments",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b1de1475-f806-41db-b5ee-c3621bb0c941",
+          "name": "List memberships",
+          "request": {
+            "name": "List memberships",
+            "description": {},
+            "url": {
+              "path": [
+                "memberships.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c9f6c84-58c8-421f-bc0c-7309a0499a8a",
+              "name": "Memberships",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"memberships\": [\n    {\n      \"id\": \"40f2cc99-ac04-2d8c-42b4-3489c02a13ba\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"email\": \"BJLH@HHWmoWtiFblJCPpuwKlaMkfzsFZW.btma\",\n      \"role_id\": \"0fd98157-ec03-da86-dd4f-5ccd7d059b08\",\n      \"status\": \"string\"\n    },\n    {\n      \"id\": \"36ba4660-4890-c689-110a-56927625d034\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"email\": \"1eTy88jYTNq5hA@OzvpLFwgpmpKRVDBkLkjgVaCJKIDQIs.wk\",\n      \"role_id\": \"17633f85-f36d-120e-4097-df25a89cc395\",\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0fc8440e-b35c-4c3f-974e-0d4dd75a91df",
+          "name": "Update membership",
+          "request": {
+            "name": "Update membership",
+            "description": {},
+            "url": {
+              "path": [
+                "memberships",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"membership\": {\n    \"id\": \"<uuid>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"role_id\": \"<uuid>\",\n    \"status\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ff208655-b593-46a6-a7da-a8e2eb3567c9",
+              "name": "Membership updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"membership\": {\n    \"id\": \"3e5bf49f-b590-0046-4ab3-c23ecb0be719\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"email\": \"uS7JFho41K@lJyOHWiKe.yin\",\n    \"role_id\": \"edbbecec-5e88-3dca-d5ce-264f1b1589ff\",\n    \"status\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"membership\": {\n    \"id\": \"3e5bf49f-b590-0046-4ab3-c23ecb0be719\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"email\": \"uS7JFho41K@lJyOHWiKe.yin\",\n    \"role_id\": \"edbbecec-5e88-3dca-d5ce-264f1b1589ff\",\n    \"status\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fulcrumapp.com/api/v2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Resource identifier (UUID)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "id"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ApiToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6c937f25-d234-49b3-98d6-0640e3bcb251",
+    "name": "Fulcrum Audio Memberships API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.\n\nContact Support:\n Name: Fulcrum",
+      "type": "text/plain"
+    }
+  }
+}

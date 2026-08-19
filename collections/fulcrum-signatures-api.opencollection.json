@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fulcrum Audio Signatures API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ApiToken",
+      "value": "{{X-ApiToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Signatures",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List signatures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/signatures.json"
+          },
+          "docs": "List signatures"
+        },
+        {
+          "info": {
+            "name": "Upload signature",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fulcrumapp.com/api/v2/signatures.json",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "access_key",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload signature"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

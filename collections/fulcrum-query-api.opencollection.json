@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fulcrum Audio Query API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ApiToken",
+      "value": "{{X-ApiToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute SQL query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fulcrumapp.com/api/v2/query",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "SQL query string"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Result format"
+              }
+            ]
+          },
+          "docs": "Runs an ad hoc SQL query against the read-only Fulcrum query database and returns results as JSON, CSV, GeoJSON, KML, or another supported format depending on the format parameter."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

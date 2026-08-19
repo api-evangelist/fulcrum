@@ -1,0 +1,472 @@
+{
+  "item": [
+    {
+      "id": "c725311c-f378-40e1-90ee-50c0326724d2",
+      "name": "Classification Sets",
+      "description": {
+        "content": "Hierarchical classifications referenced by form fields",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a69e2a0d-3eda-439b-a1b3-0d3a46dc056e",
+          "name": "List classification sets",
+          "request": {
+            "name": "List classification sets",
+            "description": {},
+            "url": {
+              "path": [
+                "classification_sets.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8792afeb-71a9-4cc6-a1f8-b03ecd41b8ef",
+              "name": "Classification sets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification_sets.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classification_sets\": [\n    {\n      \"id\": \"fba235c7-740f-07ba-f3ad-a8c6ce7f44a4\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"items\": [\n        {\n          \"key_0\": false,\n          \"key_1\": 8872\n        },\n        {\n          \"key_0\": true,\n          \"key_1\": 8620\n        }\n      ]\n    },\n    {\n      \"id\": \"685870d8-7db0-d4ca-bef2-27ff53dc72ca\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"items\": [\n        {\n          \"key_0\": \"string\"\n        },\n        {\n          \"key_0\": 7576\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c12db73d-14d7-4db9-966f-4b3c75d77115",
+          "name": "Create classification set",
+          "request": {
+            "name": "Create classification set",
+            "description": {},
+            "url": {
+              "path": [
+                "classification_sets.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classification_set\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"items\": [\n      {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      {\n        \"key_0\": false,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "02e37db1-798e-446f-9b2b-8ad3c555ab19",
+              "name": "Classification set created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification_sets.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"classification_set\": {\n    \"id\": \"8389ca27-b510-9f4c-d146-161ff3e92a22\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"items\": [\n      {\n        \"key_0\": 2191.9747542031873,\n        \"key_1\": \"string\"\n      },\n      {\n        \"key_0\": 4028.124324702396\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classification_set\": {\n    \"id\": \"8389ca27-b510-9f4c-d146-161ff3e92a22\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"items\": [\n      {\n        \"key_0\": 2191.9747542031873,\n        \"key_1\": \"string\"\n      },\n      {\n        \"key_0\": 4028.124324702396\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b44d463b-cfd0-4ee6-be2a-8bfef81a89d7",
+          "name": "Get classification set",
+          "request": {
+            "name": "Get classification set",
+            "description": {},
+            "url": {
+              "path": [
+                "classification_sets",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e65a20d-07c2-4c7c-a198-87cddde237da",
+              "name": "Classification set",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification_sets",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classification_set\": {\n    \"id\": \"8389ca27-b510-9f4c-d146-161ff3e92a22\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"items\": [\n      {\n        \"key_0\": 2191.9747542031873,\n        \"key_1\": \"string\"\n      },\n      {\n        \"key_0\": 4028.124324702396\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82f8b66c-e096-44e4-9f63-b6a4bac8137d",
+          "name": "Update classification set",
+          "request": {
+            "name": "Update classification set",
+            "description": {},
+            "url": {
+              "path": [
+                "classification_sets",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classification_set\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"items\": [\n      {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      {\n        \"key_0\": false,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c7191032-8694-4c1d-95ef-475a24ee2af7",
+              "name": "Classification set updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification_sets",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"classification_set\": {\n    \"id\": \"8389ca27-b510-9f4c-d146-161ff3e92a22\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"items\": [\n      {\n        \"key_0\": 2191.9747542031873,\n        \"key_1\": \"string\"\n      },\n      {\n        \"key_0\": 4028.124324702396\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classification_set\": {\n    \"id\": \"8389ca27-b510-9f4c-d146-161ff3e92a22\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"items\": [\n      {\n        \"key_0\": 2191.9747542031873,\n        \"key_1\": \"string\"\n      },\n      {\n        \"key_0\": 4028.124324702396\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5cf3ae4f-de85-42cc-8c53-bd99db922dc8",
+          "name": "Delete classification set",
+          "request": {
+            "name": "Delete classification set",
+            "description": {},
+            "url": {
+              "path": [
+                "classification_sets",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3280d471-9701-4747-ada0-d230c5af47d1",
+              "name": "Classification set deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "classification_sets",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fulcrumapp.com/api/v2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Resource identifier (UUID)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "id"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ApiToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f6c764b9-5af3-473f-a58b-eeb6e168c1f4",
+    "name": "Fulcrum Audio Classification Sets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.\n\nContact Support:\n Name: Fulcrum",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "item": [
+    {
+      "id": "010fc420-e7a3-41a7-b90d-89579dae5275",
+      "name": "Audio",
+      "description": {
+        "content": "Audio media attached to records",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ce1a6d8b-8b4d-4e4f-a9a3-7e819d0a5aa7",
+          "name": "List audio clips",
+          "request": {
+            "name": "List audio clips",
+            "description": {},
+            "url": {
+              "path": [
+                "audio.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1ea7b4a5-0317-4eda-97ab-48b2c7c09fec",
+              "name": "Audio clips",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "audio.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"audio\": [\n    {\n      \"access_key\": \"string\",\n      \"record_id\": \"64774550-84c4-c4cc-ac4d-b54ccf8cbf90\",\n      \"form_id\": \"900eeaeb-0e79-7bbc-9edd-1e452920c5f7\",\n      \"file_size\": 9936,\n      \"content_type\": \"string\",\n      \"created_at\": \"1964-07-24T12:31:11.455Z\",\n      \"updated_at\": \"2006-01-20T20:28:04.513Z\"\n    },\n    {\n      \"access_key\": \"string\",\n      \"record_id\": \"dd5d1575-11b0-4b07-be2e-0dd0546b1836\",\n      \"form_id\": \"7b03c3b9-0b4d-ecf3-be6f-42cdaa4b54c5\",\n      \"file_size\": 9310,\n      \"content_type\": \"string\",\n      \"created_at\": \"1963-06-10T21:34:26.496Z\",\n      \"updated_at\": \"1995-07-12T13:51:48.878Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a889f579-97f7-4287-a211-839beaf6c835",
+          "name": "Upload audio",
+          "request": {
+            "name": "Upload audio",
+            "description": {},
+            "url": {
+              "path": [
+                "audio.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "access_key",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) "
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2d299366-20bf-4dd4-b0f3-68bc5b4d2c20",
+              "name": "Audio uploaded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "audio.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "access_key",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"audio\": {\n    \"access_key\": \"string\",\n    \"record_id\": \"83226bc4-4de0-e3c1-a0e3-3bb17457a448\",\n    \"form_id\": \"4fa670a1-9604-0753-10a1-d1610c85ef43\",\n    \"file_size\": 3628,\n    \"content_type\": \"string\",\n    \"created_at\": \"2020-03-30T17:32:29.134Z\",\n    \"updated_at\": \"1968-02-03T10:55:20.300Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fulcrumapp.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ApiToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bcb13d17-a14d-4404-bd10-a28a9759be3e",
+    "name": "Fulcrum Audio API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.\n\nContact Support:\n Name: Fulcrum",
+      "type": "text/plain"
+    }
+  }
+}

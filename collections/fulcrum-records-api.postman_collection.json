@@ -1,0 +1,545 @@
+{
+  "item": [
+    {
+      "id": "e5ae9de8-5c3b-46dc-8c30-7ad3eae47d3b",
+      "name": "Records",
+      "description": {
+        "content": "Records collected against a form",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "929a3777-8bb9-4d96-8c67-7fa3b6db1892",
+          "name": "List records",
+          "request": {
+            "name": "List records",
+            "description": {
+              "content": "Returns records that match the supplied filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "records.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "form_id",
+                  "value": "<string>",
+                  "description": "Filter by form (app) identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "project_id",
+                  "value": "<string>",
+                  "description": "Filter by project identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "assigned_to_id",
+                  "value": "<string>",
+                  "description": "Filter by assignment"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by record status"
+                },
+                {
+                  "disabled": false,
+                  "key": "bounding_box",
+                  "value": "<string>",
+                  "description": "Comma-separated south,west,north,east bounding box"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce11d46c-13ca-4556-9ac9-b09f2efacece",
+              "name": "Records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "records.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "form_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assigned_to_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bounding_box",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"records\": [\n    {\n      \"id\": \"5410896f-ea2a-649a-0cc7-488d107d92b0\",\n      \"form_id\": \"c942d87d-0b6b-f7b8-1922-d2424abfe628\",\n      \"project_id\": \"ab1f6e37-4deb-f081-8339-17c2fcf58013\",\n      \"assigned_to_id\": \"459a39b3-cc1b-cb5b-3c8c-cff9dc9c55ff\",\n      \"status\": \"string\",\n      \"latitude\": 5837.495633584875,\n      \"longitude\": 2095.902181268684,\n      \"altitude\": 945.3158343154411,\n      \"form_values\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"2001-09-22T12:54:52.630Z\",\n      \"updated_at\": \"1949-07-05T20:39:20.963Z\"\n    },\n    {\n      \"id\": \"a02f070b-c208-45ed-65e8-87248649863c\",\n      \"form_id\": \"757cd698-2221-6bc8-a2d5-aa88d0f9778d\",\n      \"project_id\": \"99e8c2b5-a408-d473-966f-b10134c67c42\",\n      \"assigned_to_id\": \"f5cd0356-37c8-9ec9-beda-a654689c77d9\",\n      \"status\": \"string\",\n      \"latitude\": 6732.244274663428,\n      \"longitude\": 6669.882157393215,\n      \"altitude\": 4020.152071168075,\n      \"form_values\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"1996-06-27T07:09:16.526Z\",\n      \"updated_at\": \"2013-06-03T15:54:58.970Z\"\n    }\n  ],\n  \"current_page\": 9031,\n  \"total_pages\": 4271,\n  \"total_count\": 9031,\n  \"per_page\": 1607\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8783d8e8-e3ec-4c41-90d0-06895ac56f62",
+          "name": "Create record",
+          "request": {
+            "name": "Create record",
+            "description": {},
+            "url": {
+              "path": [
+                "records.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"record\": {\n    \"id\": \"<uuid>\",\n    \"form_id\": \"<uuid>\",\n    \"project_id\": \"<uuid>\",\n    \"assigned_to_id\": \"<uuid>\",\n    \"status\": \"<string>\",\n    \"latitude\": \"<double>\",\n    \"longitude\": \"<double>\",\n    \"altitude\": \"<double>\",\n    \"form_values\": {\n      \"key_0\": 6829,\n      \"key_1\": \"string\",\n      \"key_2\": 6459.545623424238\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "992cb5f9-67e6-4d1f-811c-98c78a4df276",
+              "name": "Record created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "records.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"record\": {\n    \"id\": \"b09ad229-ab11-333c-ff8a-48fa5e4616a3\",\n    \"form_id\": \"160c9e03-3e28-df13-d816-cb2585946206\",\n    \"project_id\": \"0067be5a-7717-f839-0659-dc22a1c6ea8e\",\n    \"assigned_to_id\": \"c28358f6-8041-f612-4c89-cda9d30a4a02\",\n    \"status\": \"string\",\n    \"latitude\": 8803.988783271436,\n    \"longitude\": 2223.608501456108,\n    \"altitude\": 7234.209391347469,\n    \"form_values\": {\n      \"key_0\": 8741.374252773698,\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"created_at\": \"2010-02-07T08:15:26.267Z\",\n    \"updated_at\": \"1960-03-26T09:36:12.707Z\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"record\": {\n    \"id\": \"b09ad229-ab11-333c-ff8a-48fa5e4616a3\",\n    \"form_id\": \"160c9e03-3e28-df13-d816-cb2585946206\",\n    \"project_id\": \"0067be5a-7717-f839-0659-dc22a1c6ea8e\",\n    \"assigned_to_id\": \"c28358f6-8041-f612-4c89-cda9d30a4a02\",\n    \"status\": \"string\",\n    \"latitude\": 8803.988783271436,\n    \"longitude\": 2223.608501456108,\n    \"altitude\": 7234.209391347469,\n    \"form_values\": {\n      \"key_0\": 8741.374252773698,\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"created_at\": \"2010-02-07T08:15:26.267Z\",\n    \"updated_at\": \"1960-03-26T09:36:12.707Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43e9acdf-5f81-4785-b481-600ad1e36f75",
+          "name": "Get record",
+          "request": {
+            "name": "Get record",
+            "description": {},
+            "url": {
+              "path": [
+                "records",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35003a91-693b-473e-a839-b1a4a5dabaa3",
+              "name": "Record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "records",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"record\": {\n    \"id\": \"b09ad229-ab11-333c-ff8a-48fa5e4616a3\",\n    \"form_id\": \"160c9e03-3e28-df13-d816-cb2585946206\",\n    \"project_id\": \"0067be5a-7717-f839-0659-dc22a1c6ea8e\",\n    \"assigned_to_id\": \"c28358f6-8041-f612-4c89-cda9d30a4a02\",\n    \"status\": \"string\",\n    \"latitude\": 8803.988783271436,\n    \"longitude\": 2223.608501456108,\n    \"altitude\": 7234.209391347469,\n    \"form_values\": {\n      \"key_0\": 8741.374252773698,\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"created_at\": \"2010-02-07T08:15:26.267Z\",\n    \"updated_at\": \"1960-03-26T09:36:12.707Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc19688e-cf8d-4d1d-aceb-6983cf28758c",
+          "name": "Update record",
+          "request": {
+            "name": "Update record",
+            "description": {},
+            "url": {
+              "path": [
+                "records",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"record\": {\n    \"id\": \"<uuid>\",\n    \"form_id\": \"<uuid>\",\n    \"project_id\": \"<uuid>\",\n    \"assigned_to_id\": \"<uuid>\",\n    \"status\": \"<string>\",\n    \"latitude\": \"<double>\",\n    \"longitude\": \"<double>\",\n    \"altitude\": \"<double>\",\n    \"form_values\": {\n      \"key_0\": 6829,\n      \"key_1\": \"string\",\n      \"key_2\": 6459.545623424238\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d6417385-6758-4bae-aed3-3ae130b70002",
+              "name": "Record updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "records",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"record\": {\n    \"id\": \"b09ad229-ab11-333c-ff8a-48fa5e4616a3\",\n    \"form_id\": \"160c9e03-3e28-df13-d816-cb2585946206\",\n    \"project_id\": \"0067be5a-7717-f839-0659-dc22a1c6ea8e\",\n    \"assigned_to_id\": \"c28358f6-8041-f612-4c89-cda9d30a4a02\",\n    \"status\": \"string\",\n    \"latitude\": 8803.988783271436,\n    \"longitude\": 2223.608501456108,\n    \"altitude\": 7234.209391347469,\n    \"form_values\": {\n      \"key_0\": 8741.374252773698,\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"created_at\": \"2010-02-07T08:15:26.267Z\",\n    \"updated_at\": \"1960-03-26T09:36:12.707Z\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"record\": {\n    \"id\": \"b09ad229-ab11-333c-ff8a-48fa5e4616a3\",\n    \"form_id\": \"160c9e03-3e28-df13-d816-cb2585946206\",\n    \"project_id\": \"0067be5a-7717-f839-0659-dc22a1c6ea8e\",\n    \"assigned_to_id\": \"c28358f6-8041-f612-4c89-cda9d30a4a02\",\n    \"status\": \"string\",\n    \"latitude\": 8803.988783271436,\n    \"longitude\": 2223.608501456108,\n    \"altitude\": 7234.209391347469,\n    \"form_values\": {\n      \"key_0\": 8741.374252773698,\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"created_at\": \"2010-02-07T08:15:26.267Z\",\n    \"updated_at\": \"1960-03-26T09:36:12.707Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "745c03f0-d782-4684-ae80-03850f0e761e",
+          "name": "Delete record",
+          "request": {
+            "name": "Delete record",
+            "description": {},
+            "url": {
+              "path": [
+                "records",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23fd466b-8a6f-49b8-8128-d1237359046e",
+              "name": "Record deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "records",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiToken",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fulcrumapp.com/api/v2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Resource identifier (UUID)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "id"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ApiToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bb8c5ebc-451b-4a1d-8ebf-37e823092a6d",
+    "name": "Fulcrum Audio Records API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Fulcrum API is a RESTful HTTP API for the Fulcrum field data collection platform. It provides programmatic access to forms, records, media (photos, videos, audio, signatures), choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc query and SQL execution, and changesets. Requests and responses use JSON and authenticate with an X-ApiToken header issued from a Fulcrum account.\n\nContact Support:\n Name: Fulcrum",
+      "type": "text/plain"
+    }
+  }
+}
