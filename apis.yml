@@ -31,7 +31,7 @@ tags:
   - Process Management
   - Mobile
 url: https://raw.githubusercontent.com/api-evangelist/fulcrum/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: fulcrum:fulcrum-audio-api
   name: Fulcrum Audio API
