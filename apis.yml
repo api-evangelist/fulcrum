@@ -151,6 +151,8 @@ apis:
   humanURL: https://docs.fulcrumapp.com/reference/
   baseURL: https://api.fulcrumapp.com/api/v2
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -235,6 +237,8 @@ apis:
   humanURL: https://docs.fulcrumapp.com/reference/
   baseURL: https://api.fulcrumapp.com/api/v2
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
