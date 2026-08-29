@@ -6,6 +6,18 @@ description: >-
   The Fulcrum REST API exposes programmatic access to forms, records, media, choice lists, classification sets,
   projects, layers, memberships, roles, webhooks, ad hoc SQL queries, and changesets.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
