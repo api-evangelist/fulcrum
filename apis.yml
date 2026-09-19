@@ -136,6 +136,8 @@ apis:
   humanURL: https://docs.fulcrumapp.com/reference/
   baseURL: https://api.fulcrumapp.com/api/v2
   tags:
+  - Membership
+  tags_raw:
   - Memberships
   properties:
   - type: OpenAPI
@@ -236,6 +238,8 @@ apis:
   humanURL: https://docs.fulcrumapp.com/reference/
   baseURL: https://api.fulcrumapp.com/api/v2
   tags:
+  - Video
+  tags_raw:
   - Videos
   properties:
   - type: OpenAPI
