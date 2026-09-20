@@ -35,7 +35,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fulcrum.png
 access: 3rd-Party
 created: '2024-11-13'
-modified: '2026-05-19'
+modified: '2026-09-19'
 position: Consuming
 tags:
   - Data Collection
@@ -299,6 +299,9 @@ common:
     url: https://www.fulcrumapp.com/integrations/
   - type: LlmsText
     url: https://docs.fulcrumapp.com/llms.txt
+  - name: MCP Documentation
+    url: https://www.fulcrumapp.com/newsroom/fulcrum-announces-mcp-connector-and-ai-toolkit/
+    type: MCPDocumentation
 integrations:
   - name: Logo preload
   - name: Logo
