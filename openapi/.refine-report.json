@@ -1,21 +1,7 @@
 {
   "provider": "fulcrum",
   "sources": [
-    "fulcrum-audio-api-openapi.yml",
-    "fulcrum-changesets-api-openapi.yml",
-    "fulcrum-choice-lists-api-openapi.yml",
-    "fulcrum-classification-sets-api-openapi.yml",
-    "fulcrum-forms-api-openapi.yml",
-    "fulcrum-layers-api-openapi.yml",
-    "fulcrum-memberships-api-openapi.yml",
-    "fulcrum-photos-api-openapi.yml",
-    "fulcrum-projects-api-openapi.yml",
-    "fulcrum-query-api-openapi.yml",
-    "fulcrum-records-api-openapi.yml",
-    "fulcrum-roles-api-openapi.yml",
-    "fulcrum-signatures-api-openapi.yml",
-    "fulcrum-videos-api-openapi.yml",
-    "fulcrum-webhooks-api-openapi.yml"
+    "_original/fulcrum-api-openapi.yml"
   ],
   "outputs": [
     "fulcrum-audio-api-openapi.yml",
@@ -37,6 +23,26 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "fulcrum-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "fulcrum-audio-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-changesets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-choice-lists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-classification-sets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-forms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-layers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-memberships-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-photos-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-query-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-records-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-roles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-signatures-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-videos-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fulcrum-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
