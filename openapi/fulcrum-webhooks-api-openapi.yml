@@ -108,15 +108,6 @@ paths:
         '204':
           description: Webhook deleted
 components:
-  parameters:
-    IdPath:
-      name: id
-      in: path
-      required: true
-      description: Resource identifier (UUID)
-      schema:
-        type: string
-        format: uuid
   schemas:
     Webhook:
       type: object
@@ -133,6 +124,15 @@ components:
           type: array
           items:
             type: string
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier (UUID)
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     ApiToken:
       type: apiKey
