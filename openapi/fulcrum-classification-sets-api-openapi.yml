@@ -108,6 +108,15 @@ paths:
         '204':
           description: Classification set deleted
 components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier (UUID)
+      schema:
+        type: string
+        format: uuid
   schemas:
     ClassificationSet:
       type: object
@@ -124,15 +133,6 @@ components:
           items:
             type: object
             additionalProperties: true
-  parameters:
-    IdPath:
-      name: id
-      in: path
-      required: true
-      description: Resource identifier (UUID)
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     ApiToken:
       type: apiKey
