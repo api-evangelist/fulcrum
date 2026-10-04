@@ -151,15 +151,6 @@ paths:
         '204':
           description: Record deleted
 components:
-  parameters:
-    IdPath:
-      name: id
-      in: path
-      required: true
-      description: Resource identifier (UUID)
-      schema:
-        type: string
-        format: uuid
   schemas:
     Record:
       type: object
@@ -199,6 +190,15 @@ components:
         updated_at:
           type: string
           format: date-time
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier (UUID)
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     ApiToken:
       type: apiKey

@@ -117,6 +117,15 @@ paths:
                 type: string
                 format: binary
 components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier (UUID)
+      schema:
+        type: string
+        format: uuid
   schemas:
     Photo:
       type: object
@@ -143,15 +152,6 @@ components:
         updated_at:
           type: string
           format: date-time
-  parameters:
-    IdPath:
-      name: id
-      in: path
-      required: true
-      description: Resource identifier (UUID)
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     ApiToken:
       type: apiKey
