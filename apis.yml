@@ -268,6 +268,12 @@ apis:
   - type: GettingStarted
     url: https://docs.fulcrumapp.com/docs
 common:
+  - type: Plans
+    url: plans/fulcrum-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/fulcrum-rate-limits.yml
+  - type: FinOps
+    url: finops/fulcrum-finops.yml
   - type: AgenticAccess
     url: agentic-access/fulcrum-agentic-access.yml
   - type: TrustCenter
