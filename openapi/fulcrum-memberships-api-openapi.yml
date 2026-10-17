@@ -61,15 +61,6 @@ paths:
                   membership:
                     $ref: '#/components/schemas/Membership'
 components:
-  parameters:
-    IdPath:
-      name: id
-      in: path
-      required: true
-      description: Resource identifier (UUID)
-      schema:
-        type: string
-        format: uuid
   schemas:
     Membership:
       type: object
@@ -89,6 +80,15 @@ components:
           format: uuid
         status:
           type: string
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier (UUID)
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     ApiToken:
       type: apiKey
