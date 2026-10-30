@@ -1,4 +1,4 @@
-# Fulcrum (fulcrum)
+# Fulcrum
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,71 +66,150 @@
 
 Fulcrum is a field data collection and inspection platform used by teams to build mobile forms, capture geospatial records, attach photos, videos, audio, and signatures, and synchronize the resulting data with back-office systems. The Fulcrum REST API exposes programmatic access to forms, records, media, choice lists, classification sets, projects, layers, memberships, roles, webhooks, ad hoc SQL queries, and changesets.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/fulcrum/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/fulcrum/refs/heads/main/apis.yml)
+**Areas:** Data Collection · Field Data · Geospatial · Process Management · Mobile
 
-## Scope
+## Fulcrum on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Fulcrum is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/fulcrum/](https://apis.io/providers/fulcrum/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (15)
 
-- Data Collection
-- Field Data
-- Geospatial
-- Process Management
-- Mobile
+- [Fulcrum Audio API](https://apis.io/apis/fulcrum/fulcrum-audio-api/) — Audio media attached to records
+- [Fulcrum Changesets API](https://apis.io/apis/fulcrum/fulcrum-changesets-api/) — Grouped record changes for sync and audit
+- [Fulcrum Choice Lists API](https://apis.io/apis/fulcrum/fulcrum-choice-lists-api/) — Reusable choice lists referenced by form fields
+- [Fulcrum Classification Sets API](https://apis.io/apis/fulcrum/fulcrum-classification-sets-api/) — Hierarchical classifications referenced by form fields
+- [Fulcrum Forms API](https://apis.io/apis/fulcrum/fulcrum-forms-api/) — App and form definitions
+- [Fulcrum Layers API](https://apis.io/apis/fulcrum/fulcrum-layers-api/) — Layers and tile sources used by forms
+- [Fulcrum Memberships API](https://apis.io/apis/fulcrum/fulcrum-memberships-api/) — Account memberships and assignments
+- [Fulcrum Photos API](https://apis.io/apis/fulcrum/fulcrum-photos-api/) — Photo media attached to records
+- [Fulcrum Projects API](https://apis.io/apis/fulcrum/fulcrum-projects-api/) — Project containers used to scope records
+- [Fulcrum Query API](https://apis.io/apis/fulcrum/fulcrum-query-api/) — Ad hoc query and SQL execution against Fulcrum data
+- [Fulcrum Records API](https://apis.io/apis/fulcrum/fulcrum-records-api/) — Records collected against a form
+- [Fulcrum Roles API](https://apis.io/apis/fulcrum/fulcrum-roles-api/) — Permission roles for memberships
+- [Fulcrum Signatures API](https://apis.io/apis/fulcrum/fulcrum-signatures-api/) — Signature media attached to records
+- [Fulcrum Videos API](https://apis.io/apis/fulcrum/fulcrum-videos-api/) — Video media attached to records
+- [Fulcrum Webhooks API](https://apis.io/apis/fulcrum/fulcrum-webhooks-api/) — Outbound webhooks for record and form events
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-11-13
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Fulcrum API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Fulcrum API is a RESTful HTTP API that provides programmatic access to all Fulcrum resources. It supports CRUD operations on forms (apps) and records, uploads of photo, video, audio, and signature media tied to records, management of choice lists and classification sets, project and layer configuration, account memberships and roles, outbound webhooks, and ad hoc SQL queries against a read-only mirror of the customer data. All requests authenticate using an X-ApiToken header and exchange JSON bodies.
+- [Fulcrum Agentic Access](https://apis.io/agentic-access/fulcrum/fulcrum-agentic-access/)
 
-- **Human URL:** [https://docs.fulcrumapp.com/reference/](https://docs.fulcrumapp.com/reference/)
-- **Base URL:** `https://api.fulcrumapp.com/api/v2`
+#### Collections (16)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Data Collection
-- Field Data
-- Geospatial
-- Forms
-- Records
-- Media
-- Webhooks
+- [Fulcrum API](https://apis.io/collections/fulcrum/open-fulcrum-api/)
+- [Fulcrum Audio API](https://apis.io/collections/fulcrum/open-fulcrum-audio-api/)
+- [Fulcrum Audio Changesets API](https://apis.io/collections/fulcrum/open-fulcrum-changesets-api/)
+- [Fulcrum Audio Choice Lists API](https://apis.io/collections/fulcrum/open-fulcrum-choice-lists-api/)
+- [Fulcrum Audio Classification Sets API](https://apis.io/collections/fulcrum/open-fulcrum-classification-sets-api/)
+- [Fulcrum Audio Forms API](https://apis.io/collections/fulcrum/open-fulcrum-forms-api/)
+- [Fulcrum Audio Layers API](https://apis.io/collections/fulcrum/open-fulcrum-layers-api/)
+- [Fulcrum Audio Memberships API](https://apis.io/collections/fulcrum/open-fulcrum-memberships-api/)
+- [Fulcrum Audio Photos API](https://apis.io/collections/fulcrum/open-fulcrum-photos-api/)
+- [Fulcrum Audio Projects API](https://apis.io/collections/fulcrum/open-fulcrum-projects-api/)
+- [Fulcrum Audio Query API](https://apis.io/collections/fulcrum/open-fulcrum-query-api/)
+- [Fulcrum Audio Records API](https://apis.io/collections/fulcrum/open-fulcrum-records-api/)
+- [Fulcrum Audio Roles API](https://apis.io/collections/fulcrum/open-fulcrum-roles-api/)
+- [Fulcrum Audio Signatures API](https://apis.io/collections/fulcrum/open-fulcrum-signatures-api/)
+- [Fulcrum Audio Videos API](https://apis.io/collections/fulcrum/open-fulcrum-videos-api/)
+- [Fulcrum Audio Webhooks API](https://apis.io/collections/fulcrum/open-fulcrum-webhooks-api/)
 
-#### Properties
+#### Security (3)
 
-- [Documentation](https://docs.fulcrumapp.com/reference/)
-- [Getting Started](https://docs.fulcrumapp.com/docs)
-- [OpenAPI](openapi/fulcrum-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fulcrum-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fulcrum-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Fulcrum Authentication](https://apis.io/security/fulcrum/fulcrum-authentication/)
+- [Fulcrum Domain Security](https://apis.io/security/fulcrum/fulcrum-domain-security/)
+- [Fulcrum Trust Center](https://apis.io/security/fulcrum/fulcrum-trust-center/)
 
-- [GitHub Organization](https://github.com/fulcrumapp)
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Fulcrum Plans Pricing](https://apis.io/plans/fulcrum/fulcrum-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Fulcrum Rate Limits](https://apis.io/rate-limits/fulcrum/fulcrum-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Fulcrum Finops](https://apis.io/finops/fulcrum/fulcrum-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.fulcrumapp.com/)
 - [Documentation](https://docs.fulcrumapp.com/)
-- [Getting Started](https://docs.fulcrumapp.com/docs)
+- [Getting started](https://docs.fulcrumapp.com/docs)
 - [Pricing](https://www.fulcrumapp.com/pricing/)
-- [Login](https://web.fulcrumapp.com/users/sign_in)
-- [Sign Up](https://web.fulcrumapp.com/users/sign_up)
-- [Privacy Policy](https://www.fulcrumapp.com/privacy/)
-- [Terms of Service](https://www.fulcrumapp.com/terms/)
 - [Support](https://www.fulcrumapp.com/support/)
 - [Blog](https://www.fulcrumapp.com/blog/)
-- [Integrations](https://www.fulcrumapp.com/integrations/)
-- [L L Ms Txt](https://docs.fulcrumapp.com/llms.txt)
+- [Terms of service](https://www.fulcrumapp.com/terms/)
+- [Privacy policy](https://www.fulcrumapp.com/privacy/)
+- [GitHub](https://github.com/fulcrumapp)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 35.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 49.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 29.8 |
+| Access clarity | 43.4 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/fulcrum/](https://apis.io/providers/fulcrum/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Fulcrum: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/fulcrum/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
